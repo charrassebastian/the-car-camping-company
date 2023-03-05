@@ -1,0 +1,26 @@
+mat-form-field {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.submitContainer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+button {
+  margin: 1rem;
+}
+
+form {
+  margin: 1rem;
+}
+
+.bienvenida {
+  margin: 1rem;
+}
+
+h2 {
+  margin: 1rem;
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,196 @@
+<div *ngIf="this.loginService.user.role === 'administrador'">
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>Administradores:</h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-administrador
+        *ngFor="let administrador of administradores"
+        [administrador]="administrador"
+        [editable]="true"
+        [borrable]="administradores.length > 1"
+        (editar)="editarAdministrador($event)"
+        (borrar)="borrarAdministrador($event)"
+      ></app-administrador>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nuevo administrador"
+          class="agregarButton"
+          (click)="this.router.navigate(['/crear/administrador'])"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Empleados:
+          <span *ngIf="!empleados || !empleados.length"
+            >no hay ningún empleado</span
+          >
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-empleado
+        *ngFor="let empleado of empleados"
+        [empleado]="empleado"
+        [editable]="true"
+        [borrable]="true"
+        (editar)="editarEmpleado($event)"
+        (borrar)="borrarEmpleado($event)"
+      ></app-empleado>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nuevo empleado"
+          class="agregarButton"
+          (click)="this.router.navigate(['/crear/empleado'])"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Garages:
+          <span *ngIf="!garages || !garages.length">no hay ningún garage</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-garage
+        *ngFor="let garage of garages"
+        [garage]="garage"
+        [editable]="true"
+        [borrable]="true"
+        (editar)="editarGarage($event)"
+        (borrar)="borrarGarage($event)"
+      ></app-garage>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nuevo garage"
+          class="agregarButton"
+          (click)="this.router.navigate(['/crear/garage'])"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Socios:
+          <span *ngIf="!socios || !socios.length">no hay ningún socio</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-socio
+        *ngFor="let socio of socios"
+        [socio]="socio"
+        [editable]="true"
+        [borrable]="true"
+        (editar)="editarSocio($event)"
+        (borrar)="borrarSocio($event)"
+      ></app-socio>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nuevo socio"
+          class="agregarButton"
+          (click)="this.router.navigate(['/crear/socio'])"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Vehículos:
+          <span *ngIf="!vehiculos || !vehiculos.length"
+            >no hay ningún vehículo</span
+          >
+        </h2></mat-card-content
+      >
+    </mat-card>
+    <div class="lista">
+      <app-vehiculo
+        *ngFor="let vehiculo of vehiculos"
+        [vehiculo]="vehiculo"
+        [editable]="true"
+        [borrable]="true"
+        (editar)="editarVehiculo($event)"
+        (borrar)="borrarVehiculo($event)"
+      ></app-vehiculo>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nuevo vehículo"
+          class="agregarButton"
+          (click)="this.router.navigate(['/crear/vehiculo'])"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Zonas:
+          <span *ngIf="!zonas || !zonas.length">no hay ninguna zona</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-zona
+        *ngFor="let zona of zonas"
+        [zona]="zona"
+        [editable]="true"
+        [borrable]="true"
+        (editar)="editarZona($event)"
+        (borrar)="borrarZona($event)"
+      ></app-zona>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nueva zona"
+          class="agregarButton"
+          (click)="this.router.navigate(['/crear/zona'])"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <p>El autor de este proyecto no se hace responsable del uso realizado por sus usuarios.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

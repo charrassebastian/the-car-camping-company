@@ -1,0 +1,31 @@
+<mat-card class="entidad">
+  <mat-card-content>
+    <h3>{{ administrador.nombre }}</h3>
+    <ul>
+      <li>Id: {{ administrador.id }}</li>
+      <li>Password: {{ administrador.password }}</li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-icon-button
+      *ngIf="editable"
+      color="accent"
+      class="editarButton"
+      aria-label="Editar"
+      (click)="this.editar.emit(this.administrador.id)"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      *ngIf="borrable"
+      color="warn"
+      class="borrarButton"
+      aria-label="Borrar"
+      (click)="this.borrar.emit(this.administrador)"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

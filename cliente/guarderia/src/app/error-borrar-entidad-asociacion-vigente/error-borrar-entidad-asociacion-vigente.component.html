@@ -1,0 +1,73 @@
+<mat-card [ngClass]="'subtituloContainer titulo'">
+  <mat-card-content>
+    <h2>
+      Error: la entidad primero debe desasociarse de las siguientes entidades:
+    </h2>
+  </mat-card-content>
+</mat-card>
+<div class="listaContainer" *ngIf="empleados?.length">
+  <mat-card [ngClass]="'subtituloContainer'">
+    <mat-card-content>
+      <h2>
+        Empleados:
+      </h2>
+    </mat-card-content>
+  </mat-card>
+  <div class="lista">
+    <app-empleado
+      *ngFor="let empleado of empleados"
+      [empleado]="empleado"
+    ></app-empleado>
+  </div>
+</div>
+<div class="listaContainer" *ngIf="garages?.length">
+  <mat-card [ngClass]="'subtituloContainer'">
+    <mat-card-content>
+      <h2>
+        Garages:
+      </h2>
+    </mat-card-content>
+  </mat-card>
+  <div class="lista">
+    <app-garage *ngFor="let garage of garages" [garage]="garage"></app-garage>
+  </div>
+</div>
+<div class="listaContainer" *ngIf="socios?.length">
+  <mat-card [ngClass]="'subtituloContainer'">
+    <mat-card-content>
+      <h2>
+        Socios:
+      </h2>
+    </mat-card-content>
+  </mat-card>
+  <div class="lista">
+    <app-socio *ngFor="let socio of socios" [socio]="socio"></app-socio>
+  </div>
+</div>
+<div class="listaContainer" *ngIf="vehiculos?.length">
+  <mat-card [ngClass]="'subtituloContainer'">
+    <mat-card-content>
+      <h2>
+        Vehículos:
+      </h2></mat-card-content
+    >
+  </mat-card>
+  <div class="lista">
+    <app-vehiculo
+      *ngFor="let vehiculo of vehiculos"
+      [vehiculo]="vehiculo"
+    ></app-vehiculo>
+  </div>
+</div>
+<div class="listaContainer" *ngIf="zonas?.length">
+  <mat-card [ngClass]="'subtituloContainer'">
+    <mat-card-content>
+      <h2>
+        Zonas:
+      </h2>
+    </mat-card-content>
+  </mat-card>
+  <div class="lista">
+    <app-zona *ngFor="let zona of zonas" [zona]="zona"></app-zona>
+  </div>
+</div>

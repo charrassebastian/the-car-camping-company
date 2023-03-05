@@ -1,0 +1,36 @@
+<mat-card class="entidad">
+  <mat-card-content>
+    <h3>{{ socio.nombre }}</h3>
+    <ul>
+      <li>Dni: {{ socio.dni }}</li>
+      <li>Password: {{ socio.password }}</li>
+      <li>Dirección: {{ socio.direccion ?? "No se ha ingresado" }}</li>
+      <li>Teléfono: {{ socio.telefono ?? "No se ha ingresado" }}</li>
+      <li>Ingreso: {{ socio.ingreso?.toLocaleDateString() ?? "No se ha ingresado" }}</li>
+      <li>Números de garages: {{ getNumerosGarages() }}</li>
+      <li>Matrículas de Vehículos: {{ getMatriculasVehiculos() }}</li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-icon-button
+      *ngIf="editable"
+      color="accent"
+      class="editarButton"
+      aria-label="Editar"
+      (click)="this.editar.emit(this.socio.dni)"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      *ngIf="borrable"
+      color="warn"
+      class="borrarButton"
+      aria-label="Borrar"
+      (click)="this.borrar.emit(this.socio)"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

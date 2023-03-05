@@ -1,0 +1,56 @@
+<div *ngIf="this.loginService.user.role === 'administrador'">
+  <mat-card [ngClass]="'subtituloContainer titulo'">
+    <mat-card-content>
+      <h2>Ingrese los nuevos datos para el garage</h2>
+    </mat-card-content>
+  </mat-card>
+  <form (ngSubmit)="onSubmit()" #garageForm="ngForm">
+    <mat-card class="formCard">
+      <mat-card-content>
+        <h2>Lectura del contador de luz</h2>
+        <mat-form-field appearance="outline">
+          <mat-label>Lectura</mat-label>
+          <input
+            type="number"
+            matInput
+            name="lecturaContadorLuz"
+            [(ngModel)]="model.lecturaContadorLuz"
+          /> </mat-form-field
+      ></mat-card-content>
+    </mat-card>
+    <mat-card class="formCard">
+      <mat-card-content>
+        <h2>Servicios de mantenimiento</h2>
+        <mat-checkbox
+          [(ngModel)]="model.clienteServiciosMantenimiento"
+          name="clienteServiciosMantenimiento"
+          >¿Ha contratado el cliente servicios de mantenimiento?</mat-checkbox
+        >
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="formCard">
+      <mat-card-content>
+        <h2>Fecha de compra</h2>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            name="fechaCompraGarage"
+            [(ngModel)]="model.fechaCompraGarage"
+          />
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker> </mat-form-field
+      ></mat-card-content>
+    </mat-card>
+    <div class="submitContainer">
+      <button type="submit" mat-fab color="accent">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

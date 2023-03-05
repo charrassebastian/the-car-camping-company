@@ -1,0 +1,7 @@
+<div class="mat-app-background">
+  <mat-toolbar class="mat-elevation-z2">
+    <h1>{{ title }}</h1>
+  </mat-toolbar>
+  <app-login *ngIf="!service.user.authenticated"></app-login>
+  <router-outlet *ngIf="service.user.authenticated"></router-outlet>
+</div>

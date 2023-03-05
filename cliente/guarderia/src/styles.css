@@ -1,0 +1,121 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color-scheme: dark;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-app-background {
+  min-height: 100%;
+  margin: 0;
+  background-image: url('assets/background-FHD.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+}
+
+router-outlet {
+  padding: 1rem;
+}
+
+h1 {
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+mat-card {
+  margin: 1rem;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  white-space: nowrap;
+}
+
+.lista {
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.listaContainer {
+  margin: 1rem;
+}
+
+mat-card-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.agregarContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+  background-color: rgb(10, 10, 10, 0.5);
+}
+
+.entidad {
+  display: inline-block;
+  width: auto;
+}
+
+.mat-mdc-card {
+  backdrop-filter: blur(10px);
+  background-color: rgb(10, 10, 10, 0.5) !important;
+}
+
+.subtituloContainer {
+  display: inline-block !important;
+  width: auto;
+}
+
+.subtituloContainer h2 {
+  margin: 0 !important;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+
+.itemsContainer li{
+  margin: 1rem 0 !important;
+}

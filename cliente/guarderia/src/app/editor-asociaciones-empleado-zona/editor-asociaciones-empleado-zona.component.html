@@ -1,0 +1,49 @@
+<div *ngIf="this.loginService.user.role === 'administrador'">
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Zonas asignadas:
+          <span *ngIf="!getZonasAsignadas()?.length">ninguna</span>
+        </h2>
+      </mat-card-content></mat-card
+    >
+    <div class="lista">
+      <app-zona
+        *ngFor="let zona of getZonasAsignadas()"
+        [zona]="zona"
+        [borrable]="true"
+        (borrar)="removerZona($event)"
+      ></app-zona>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nueva zona"
+          class="agregarButton"
+          (click)="abrirSelectorZonas()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer" [hidden]="!getDeseaAsignar()">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Zonas que se pueden asignar:
+          <span *ngIf="!getZonasAsignables()?.length">ninguna</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-zona
+        *ngFor="let zona of getZonasAsignables()"
+        [zona]="zona"
+        [asignable]="true"
+        (asignar)="asignarZona($event)"
+      ></app-zona>
+    </div>
+  </div>
+</div>

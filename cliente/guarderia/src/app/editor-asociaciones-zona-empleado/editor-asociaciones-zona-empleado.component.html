@@ -1,0 +1,49 @@
+<div *ngIf="this.loginService.user.role === 'administrador'">
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Empleados asignados:
+          <span *ngIf="!getEmpleadosAsignados()?.length">ninguno</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-empleado
+        *ngFor="let empleado of getEmpleadosAsignados()"
+        [empleado]="empleado"
+        [borrable]="true"
+        (borrar)="removerEmpleado($event)"
+      ></app-empleado>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nuevo empleado"
+          class="agregarButton"
+          (click)="abrirSelectorEmpleados()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer" [hidden]="!getDeseaAsignar()">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Empleados que se pueden asignar:
+          <span *ngIf="!getEmpleadosAsignables()?.length">ninguno</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-empleado
+        *ngFor="let empleado of getEmpleadosAsignables()"
+        [empleado]="empleado"
+        [asignable]="true"
+        (asignar)="asignarEmpleado($event)"
+      ></app-empleado>
+    </div>
+  </div>
+</div>

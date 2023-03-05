@@ -1,0 +1,64 @@
+<mat-card [ngClass]="'subtituloContainer titulo'">
+  <mat-card-content>
+    <h2>Ingrese los datos de la nueva zona</h2>
+  </mat-card-content>
+</mat-card>
+<form (ngSubmit)="onSubmit()" #zonaForm="ngForm">
+  <mat-card class="formCard">
+    <mat-card-content>
+      <h2>Letra de la zona</h2>
+      <mat-form-field appearance="outline" required>
+        <mat-label>Letra</mat-label>
+        <input
+          type="text"
+          matInput
+          name="letra"
+          [(ngModel)]="model.letra"
+        /> </mat-form-field
+    ></mat-card-content>
+  </mat-card>
+  <mat-card class="formCard">
+    <mat-card-content>
+      <h2>Tipo de vehículos que contiene</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>TIpo de vehiculos</mat-label>
+        <input
+          type="text"
+          matInput
+          name="tipoVehiculo"
+          [(ngModel)]="model.tipoVehiculo"
+        /> </mat-form-field
+    ></mat-card-content>
+  </mat-card>
+  <mat-card class="formCard">
+    <mat-card-content>
+      <h2>Profundidad de los garages</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>Profundidad</mat-label>
+        <input
+          type="number"
+          matInput
+          name="profundidadGarage"
+          [(ngModel)]="model.profundidadGarage"
+        /> </mat-form-field
+    ></mat-card-content>
+  </mat-card>
+  <mat-card class="formCard">
+    <mat-card-content>
+      <h2>Ancho de los garages</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>Ancho</mat-label>
+        <input
+          type="number"
+          matInput
+          name="ancho"
+          [(ngModel)]="model.anchoGarage"
+        /> </mat-form-field
+    ></mat-card-content>
+  </mat-card>
+  <div class="submitContainer">
+    <button type="submit" mat-fab color="accent">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</form>

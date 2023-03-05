@@ -1,0 +1,49 @@
+<div *ngIf="this.loginService.user.role === 'administrador'">
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Vehículos asignados:
+          <span *ngIf="!getVehiculosAsignados()?.length">ninguno</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-vehiculo
+        *ngFor="let vehiculo of getVehiculosAsignados()"
+        [vehiculo]="vehiculo"
+        [borrable]="true"
+        (borrar)="removerVehiculo($event)"
+      ></app-vehiculo>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nuevo vehiculo"
+          class="agregarButton"
+          (click)="abrirSelectorVehiculos()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer" [hidden]="!getDeseaAsignar()">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Vehículos que se pueden asignar:
+          <span *ngIf="!getVehiculosAsignables()?.length">ninguno</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-vehiculo
+        *ngFor="let vehiculo of getVehiculosAsignables()"
+        [vehiculo]="vehiculo"
+        [asignable]="true"
+        (asignar)="asignarVehiculo($event)"
+      ></app-vehiculo>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+h2,
+button,
+.titulo,
+.opciones {
+  margin: 1rem;
+  word-wrap: break-word;
+}
+
+mat-card {
+  box-sizing: content-box;
+  margin: 2rem 0;
+  width: auto;
+}
+
+mat-card-content {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+h2 {
+  display: inline-block;
+  width: auto;
+}

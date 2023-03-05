@@ -1,0 +1,48 @@
+<mat-card class="entidad">
+  <mat-card-content>
+    <h3>Zona '{{ zona.letra }}'</h3>
+    <ul>
+      <li>Tipo de vehículo: {{ zona.tipoVehiculo ?? "No se ha ingresado" }}</li>
+      <li>
+        Profundidad de garage:
+        {{ zona.profundidadGarage ?? "No se ha ingresado" }}
+      </li>
+      <li>Ancho de garage: {{ zona.anchoGarage ?? "No se ha ingresado" }}</li>
+      <li>Números de garages: {{ getNumerosGarages() }}</li>
+      <li>Códigos de empleados: {{ getCodigosEmpleados() }}</li>
+      <li>Cantidad de vehículos contenidos: {{ numeroVehiculosContenidos ?? 0}}</li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-icon-button
+      *ngIf="asignable"
+      color="accent"
+      class="asignarButton"
+      aria-label="Asignar"
+      (click)="this.asignar.emit(this.zona)"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      *ngIf="editable"
+      color="accent"
+      class="editarButton"
+      aria-label="Editar"
+      (click)="this.editar.emit(this.zona.letra)"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      *ngIf="borrable"
+      color="warn"
+      class="borrarButton"
+      aria-label="Borrar"
+      (click)="this.borrar.emit(this.zona)"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

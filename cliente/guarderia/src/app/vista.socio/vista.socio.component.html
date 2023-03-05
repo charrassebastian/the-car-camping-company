@@ -1,0 +1,59 @@
+<div *ngIf="this.loginService.user.role === 'socio' && socio">
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Bienvenido, {{ socio.nombre }}. A continuación podrá consultar sus
+          datos.
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <mat-card>
+        <mat-card-content>
+          <ul class="itemsContainer">
+            <li>Rol: socio</li>
+            <li>Dni: {{ socio.dni }}</li>
+            <li>Nombre: {{ socio.nombre }}</li>
+            <li>Password: {{ socio.password }}</li>
+            <li>Dirección: {{ socio.direccion ?? "No se ha ingresado" }}</li>
+            <li>Teléfono: {{ socio.telefono ?? "No se ha ingresado" }}</li>
+            <li>Ingreso: {{ socio.ingreso ?? "No se ha ingresado" }}</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Garages:
+          <span *ngIf="!socio.garages?.length">no tiene ningún garage</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-garage
+        *ngFor="let garage of socio.garages"
+        [garage]="garage"
+      ></app-garage>
+    </div>
+  </div>
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Vehículos:
+          <span *ngIf="!socio.vehiculos?.length">no tiene ningún vehículo</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-vehiculo
+        *ngFor="let vehiculo of socio.vehiculos"
+        [vehiculo]="vehiculo"
+      ></app-vehiculo>
+    </div>
+  </div>
+</div>

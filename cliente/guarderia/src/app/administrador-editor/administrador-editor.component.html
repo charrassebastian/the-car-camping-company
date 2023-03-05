@@ -1,0 +1,39 @@
+<div *ngIf="this.loginService.user.role === 'administrador'">
+  <mat-card [ngClass]="'subtituloContainer titulo'">
+    <mat-card-content>
+      <h2>Ingrese los nuevos datos para el administrador</h2>
+    </mat-card-content>
+  </mat-card>
+  <form (ngSubmit)="onSubmit()" #administradorForm="ngForm">
+    <mat-card class="formCard">
+      <mat-card-content>
+        <h2>Nombre de usuario</h2>
+        <mat-form-field appearance="outline" required>
+          <mat-label>Nombre</mat-label>
+          <input
+            type="text"
+            matInput
+            name="nombre"
+            [(ngModel)]="model.nombre"
+          /> </mat-form-field
+      ></mat-card-content>
+    </mat-card>
+    <mat-card class="formCard">
+      <mat-card-content>
+        <h2>Contraseña</h2>
+        <mat-form-field appearance="outline" required>
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            name="password"
+            [(ngModel)]="model.password"
+          /> </mat-form-field></mat-card-content
+    ></mat-card>
+    <div class="submitContainer">
+      <button type="submit" mat-fab color="accent">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

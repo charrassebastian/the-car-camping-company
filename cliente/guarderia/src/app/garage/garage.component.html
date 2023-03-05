@@ -1,0 +1,53 @@
+<mat-card class="entidad" *ngIf="garage">
+  <mat-card-content>
+    <h3>N°{{ garage.numeroGarage }}</h3>
+    <ul>
+      <li>
+        Lectura del contador de luz:
+        {{ garage.lecturaContadorLuz ?? "No se ha ingresado" }}
+      </li>
+      <li>
+        ¿Tiene mantenimiento contratado?:
+        {{ garage.clienteServiciosMantenimiento ? "sí" : "no" }}
+      </li>
+      <li>
+        Fecha de compra del garage:
+        {{
+          garage.fechaCompraGarage?.toLocaleDateString() ?? "No se ha ingresado"
+        }}
+      </li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-icon-button
+      *ngIf="asignable"
+      color="accent"
+      class="asignarButton"
+      aria-label="Asignar"
+      (click)="this.asignar.emit(this.garage)"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      *ngIf="editable"
+      color="accent"
+      class="editarButton"
+      aria-label="Editar"
+      (click)="this.editar.emit(this.garage.numeroGarage)"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      *ngIf="borrable"
+      color="warn"
+      class="borrarButton"
+      aria-label="Borrar"
+      (click)="this.borrar.emit(this.garage)"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

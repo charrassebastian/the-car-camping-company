@@ -1,0 +1,49 @@
+<div *ngIf="this.loginService.user.role === 'administrador'">
+  <div class="listaContainer">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Garages asignados:
+          <span *ngIf="!getGaragesAsignados()?.length">ninguno</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-garage
+        *ngFor="let garage of getGaragesAsignados()"
+        [garage]="garage"
+        [borrable]="true"
+        (borrar)="removerGarage($event)"
+      ></app-garage>
+      <div class="agregarContainer">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Agregar nuevo garage"
+          class="agregarButton"
+          (click)="abrirSelectorGarages()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listaContainer" [hidden]="!getDeseaAsignar()">
+    <mat-card [ngClass]="'subtituloContainer'">
+      <mat-card-content>
+        <h2>
+          Garages que se pueden asignar:
+          <span *ngIf="!getGaragesAsignables()?.length">ninguno</span>
+        </h2>
+      </mat-card-content>
+    </mat-card>
+    <div class="lista">
+      <app-garage
+        *ngFor="let garage of getGaragesAsignables()"
+        [garage]="garage"
+        [asignable]="true"
+        (asignar)="asignarGarage($event)"
+      ></app-garage>
+    </div>
+  </div>
+</div>
