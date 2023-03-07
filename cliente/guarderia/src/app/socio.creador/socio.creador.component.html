@@ -1,95 +1,101 @@
 <mat-card [ngClass]="'subtituloContainer titulo'">
   <mat-card-content>
-    <h2>Ingrese los datos del nuevo socio</h2>
+    <h2>Enter the information of the new partner</h2>
   </mat-card-content>
 </mat-card>
-<form (ngSubmit)="onSubmit()" #socioForm="ngForm">
+<form #socioForm="ngForm" (ngSubmit)="onSubmit()">
   <mat-card class="formCard">
     <mat-card-content>
-      <h2>DNI del socio</h2>
+      <h2>ID of the partner</h2>
       <mat-form-field appearance="outline" required>
-        <mat-label>DNI</mat-label>
+        <mat-label>ID</mat-label>
         <input
-          type="number"
+          [(ngModel)]="model.dni"
           matInput
           name="dni"
-          [(ngModel)]="model.dni"
-        /> </mat-form-field
-    ></mat-card-content>
+          type="number"
+        /></mat-form-field
+      >
+    </mat-card-content>
   </mat-card>
   <mat-card class="formCard">
     <mat-card-content>
-      <h2>Nombre de usuario</h2>
+      <h2>Username</h2>
       <mat-form-field appearance="outline" required>
-        <mat-label>Nombre</mat-label>
+        <mat-label>Name</mat-label>
         <input
-          type="text"
+          [(ngModel)]="model.nombre"
           matInput
           name="nombre"
-          [(ngModel)]="model.nombre"
-        /> </mat-form-field
-    ></mat-card-content>
+          type="text"
+        /></mat-form-field
+      >
+    </mat-card-content>
   </mat-card>
   <mat-card class="formCard">
     <mat-card-content>
-      <h2>Contraseña</h2>
+      <h2>Password</h2>
       <mat-form-field appearance="outline" required>
         <mat-label>Password</mat-label>
         <input
-          type="password"
+          [(ngModel)]="model.password"
           matInput
           name="password"
-          [(ngModel)]="model.password"
-        /> </mat-form-field></mat-card-content
-  ></mat-card>
+          type="password"
+        /></mat-form-field>
+    </mat-card-content
+    >
+  </mat-card>
   <mat-card class="formCard">
     <mat-card-content>
-      <h2>Dirección</h2>
+      <h2>Address</h2>
       <mat-form-field appearance="outline">
-        <mat-label>Dirección</mat-label>
+        <mat-label>Address</mat-label>
         <input
-          type="text"
+          [(ngModel)]="model.direccion"
           matInput
           name="direccion"
-          [(ngModel)]="model.direccion"
-        /> </mat-form-field
-    ></mat-card-content>
+          type="text"
+        /></mat-form-field
+      >
+    </mat-card-content>
   </mat-card>
   <mat-card class="formCard">
     <mat-card-content>
-      <h2>Número de teléfono</h2>
+      <h2>Phone number</h2>
       <mat-form-field appearance="outline">
-        <mat-label>Teléfono</mat-label>
+        <mat-label>Phone</mat-label>
         <input
-          type="text"
+          [(ngModel)]="model.telefono"
           matInput
           name="telefono"
-          [(ngModel)]="model.telefono"
-        /> </mat-form-field
-    ></mat-card-content>
+          type="text"
+        /></mat-form-field
+      >
+    </mat-card-content>
   </mat-card>
   <mat-card class="formCard">
     <mat-card-content>
-      <h2>Fecha de ingreso</h2>
+      <h2>Date of entrance</h2>
       <mat-form-field appearance="outline">
-        <mat-label>Fecha de ingreso</mat-label>
+        <mat-label>Date of entrance</mat-label>
         <input
-          matInput
-          [matDatepicker]="picker"
-          name="ingreso"
           [(ngModel)]="model.ingreso"
+          [matDatepicker]="picker"
+          matInput
+          name="ingreso"
         />
         <mat-hint>DD/MM/YYYY</mat-hint>
         <mat-datepicker-toggle
-          matIconSuffix
           [for]="picker"
+          matIconSuffix
         ></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </mat-card-content>
   </mat-card>
   <div class="submitContainer">
-    <button type="submit" mat-fab color="accent">
+    <button color="accent" mat-fab type="submit">
       <mat-icon>send</mat-icon>
     </button>
   </div>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-error-crear-entidad-existente',
@@ -7,5 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./error-crear-entidad-existente.component.css'],
 })
 export class ErrorCrearEntidadExistenteComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 }

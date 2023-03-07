@@ -2,25 +2,25 @@
   <div class="listaContainer">
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
-        <h2>Administradores:</h2>
+        <h2>Administrators:</h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-administrador
+        (borrar)="borrarAdministrador($event)"
+        (editar)="editarAdministrador($event)"
         *ngFor="let administrador of administradores"
         [administrador]="administrador"
-        [editable]="true"
         [borrable]="administradores.length > 1"
-        (editar)="editarAdministrador($event)"
-        (borrar)="borrarAdministrador($event)"
+        [editable]="true"
       ></app-administrador>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nuevo administrador"
-          class="agregarButton"
           (click)="this.router.navigate(['/crear/administrador'])"
+          aria-label="Add new administrator"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
@@ -31,29 +31,29 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Empleados:
+          Employees:
           <span *ngIf="!empleados || !empleados.length"
-            >no hay ningún empleado</span
+          >None found</span
           >
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-empleado
-        *ngFor="let empleado of empleados"
-        [empleado]="empleado"
-        [editable]="true"
-        [borrable]="true"
-        (editar)="editarEmpleado($event)"
         (borrar)="borrarEmpleado($event)"
+        (editar)="editarEmpleado($event)"
+        *ngFor="let empleado of empleados"
+        [borrable]="true"
+        [editable]="true"
+        [empleado]="empleado"
       ></app-empleado>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nuevo empleado"
-          class="agregarButton"
           (click)="this.router.navigate(['/crear/empleado'])"
+          aria-label="Add new employee"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
@@ -65,26 +65,26 @@
       <mat-card-content>
         <h2>
           Garages:
-          <span *ngIf="!garages || !garages.length">no hay ningún garage</span>
+          <span *ngIf="!garages || !garages.length">None found</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-garage
-        *ngFor="let garage of garages"
-        [garage]="garage"
-        [editable]="true"
-        [borrable]="true"
-        (editar)="editarGarage($event)"
         (borrar)="borrarGarage($event)"
+        (editar)="editarGarage($event)"
+        *ngFor="let garage of garages"
+        [borrable]="true"
+        [editable]="true"
+        [garage]="garage"
       ></app-garage>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nuevo garage"
-          class="agregarButton"
           (click)="this.router.navigate(['/crear/garage'])"
+          aria-label="Add new garage"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
@@ -95,27 +95,27 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Socios:
-          <span *ngIf="!socios || !socios.length">no hay ningún socio</span>
+          Partners:
+          <span *ngIf="!socios || !socios.length">None found</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-socio
-        *ngFor="let socio of socios"
-        [socio]="socio"
-        [editable]="true"
-        [borrable]="true"
-        (editar)="editarSocio($event)"
         (borrar)="borrarSocio($event)"
+        (editar)="editarSocio($event)"
+        *ngFor="let socio of socios"
+        [borrable]="true"
+        [editable]="true"
+        [socio]="socio"
       ></app-socio>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nuevo socio"
-          class="agregarButton"
           (click)="this.router.navigate(['/crear/socio'])"
+          aria-label="Add new partner"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
@@ -126,29 +126,29 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Vehículos:
+          Vehicles:
           <span *ngIf="!vehiculos || !vehiculos.length"
-            >no hay ningún vehículo</span
+          >None found</span
           >
         </h2></mat-card-content
       >
     </mat-card>
     <div class="lista">
       <app-vehiculo
-        *ngFor="let vehiculo of vehiculos"
-        [vehiculo]="vehiculo"
-        [editable]="true"
-        [borrable]="true"
-        (editar)="editarVehiculo($event)"
         (borrar)="borrarVehiculo($event)"
+        (editar)="editarVehiculo($event)"
+        *ngFor="let vehiculo of vehiculos"
+        [borrable]="true"
+        [editable]="true"
+        [vehiculo]="vehiculo"
       ></app-vehiculo>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nuevo vehículo"
-          class="agregarButton"
           (click)="this.router.navigate(['/crear/vehiculo'])"
+          aria-label="Add new vehicle"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
@@ -159,27 +159,27 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Zonas:
-          <span *ngIf="!zonas || !zonas.length">no hay ninguna zona</span>
+          Zones:
+          <span *ngIf="!zonas || !zonas.length">None found</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-zona
-        *ngFor="let zona of zonas"
-        [zona]="zona"
-        [editable]="true"
-        [borrable]="true"
-        (editar)="editarZona($event)"
         (borrar)="borrarZona($event)"
+        (editar)="editarZona($event)"
+        *ngFor="let zona of zonas"
+        [borrable]="true"
+        [editable]="true"
+        [zona]="zona"
       ></app-zona>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nueva zona"
-          class="agregarButton"
           (click)="this.router.navigate(['/crear/zona'])"
+          aria-label="Add new zone"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
@@ -189,7 +189,7 @@
   <div class="listaContainer">
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
-        <p>El autor de este proyecto no se hace responsable del uso realizado por sus usuarios.</p>
+        <p>The author of this project should not be deemed responsible for the use made by its users</p>
       </mat-card-content>
     </mat-card>
   </div>

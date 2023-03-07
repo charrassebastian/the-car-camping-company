@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { SocioDTO } from '../dto/sociodto';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SocioService } from '../servicios/socio/socio.service';
-import { SociosConverter } from '../convertidores/sociosConverter';
-import { LoginService } from '../servicios/login/login.service';
+import {Component} from '@angular/core';
+import {SocioDTO} from '../dto/sociodto';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SocioService} from '../servicios/socio/socio.service';
+import {SociosConverter} from '../convertidores/sociosConverter';
+import {LoginService} from '../servicios/login/login.service';
 
 @Component({
   selector: 'app-socio-editor',
@@ -11,12 +11,13 @@ import { LoginService } from '../servicios/login/login.service';
   styleUrls: ['./socio-editor.component.css'],
 })
 export class SocioEditorComponent {
-  model = new SocioDTO(1, 'Nombre', 'Password');
+  model = new SocioDTO(1, 'Name', 'Password');
   service!: SocioService;
   router!: Router;
   route!: ActivatedRoute;
   converter!: SociosConverter;
   loginService: LoginService;
+
   constructor(
     service: SocioService,
     router: Router,

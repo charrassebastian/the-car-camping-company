@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { GarageDTO } from '../dto/garagedto';
+import {Injectable} from '@angular/core';
+import {GarageDTO} from '../dto/garagedto';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +7,7 @@ import { GarageDTO } from '../dto/garagedto';
 export class GaragesConverter {
   convertirGarage(garageModel: any): GarageDTO {
     let fechaCompraGarage: Date | undefined | null = garageModel.fechaCompraGarage;
-    if(fechaCompraGarage !== undefined && fechaCompraGarage !== null){
+    if (fechaCompraGarage !== undefined && fechaCompraGarage !== null) {
       fechaCompraGarage = new Date(fechaCompraGarage);
       fechaCompraGarage.setMinutes(
         fechaCompraGarage.getMinutes() + fechaCompraGarage.getTimezoneOffset()
@@ -15,7 +15,7 @@ export class GaragesConverter {
     } else {
       fechaCompraGarage = undefined;
     }
-    
+
     return new GarageDTO(
       garageModel.numeroGarage,
       garageModel.lecturaContadorLuz,
@@ -36,9 +36,10 @@ export class GaragesConverter {
     }
     return garages;
   }
+
   convertirGaragesAsociados(garagesModel: any): GarageDTO[] {
     let garages: GarageDTO[] = [];
-    for(let garageModel of garagesModel){
+    for (let garageModel of garagesModel) {
       let garage: GarageDTO = this.convertirGarage(garageModel);
       garages.push(garage);
     }

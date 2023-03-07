@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { EmpleadosConverter } from '../convertidores/empleadosConverter';
-import { ZonasConverter } from '../convertidores/zonasConverter';
-import { EmpleadoDTO } from '../dto/empleadodto';
-import { ZonaDTO } from '../dto/zonadto';
-import { EmpleadoService } from '../servicios/empleado/empleado.service';
-import { LoginService } from '../servicios/login/login.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {EmpleadosConverter} from '../convertidores/empleadosConverter';
+import {ZonasConverter} from '../convertidores/zonasConverter';
+import {EmpleadoDTO} from '../dto/empleadodto';
+import {ZonaDTO} from '../dto/zonadto';
+import {EmpleadoService} from '../servicios/empleado/empleado.service';
+import {LoginService} from '../servicios/login/login.service';
 
 @Component({
   selector: 'app-vista-empleado',
@@ -17,6 +17,7 @@ export class VistaEmpleadoComponent {
   zonas?: ZonaDTO[];
   cantidadVehiculosEncargadosPorZona: any;
   loginService: LoginService
+
   constructor(
     private service: EmpleadoService,
     private converter: EmpleadosConverter,
@@ -29,6 +30,7 @@ export class VistaEmpleadoComponent {
     this.fetchZonas();
     this.fetchCantidadVehiculosZonas();
   }
+
   fetchCantidadVehiculosZonas(): void {
     this.service
       .getCantidadVehiculosAsignadosPorZona(
@@ -38,6 +40,7 @@ export class VistaEmpleadoComponent {
         this.cantidadVehiculosEncargadosPorZona = cantidades;
       });
   }
+
   getEmpleado(): void {
     this.service
       .getEmpleado(Number(this.route.snapshot.paramMap.get('codigo')))
@@ -46,6 +49,7 @@ export class VistaEmpleadoComponent {
         this.fetchZonas();
       });
   }
+
   fetchZonas(): void {
     this.service
       .getZonasAsignadas(Number(this.route.snapshot.paramMap.get('codigo')))

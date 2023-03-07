@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { EmpleadosConverter } from '../convertidores/empleadosConverter';
-import { ZonasConverter } from '../convertidores/zonasConverter';
-import { EmpleadoDTO } from '../dto/empleadodto';
-import { EmpleadoService } from '../servicios/empleado/empleado.service';
-import { LoginService } from '../servicios/login/login.service';
-import { ZonaService } from '../servicios/zona/zona.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {EmpleadosConverter} from '../convertidores/empleadosConverter';
+import {ZonasConverter} from '../convertidores/zonasConverter';
+import {EmpleadoDTO} from '../dto/empleadodto';
+import {EmpleadoService} from '../servicios/empleado/empleado.service';
+import {LoginService} from '../servicios/login/login.service';
+import {ZonaService} from '../servicios/zona/zona.service';
 
 @Component({
   selector: 'app-editor-asociaciones-zona-empleado',
@@ -13,10 +13,11 @@ import { ZonaService } from '../servicios/zona/zona.service';
   styleUrls: ['./editor-asociaciones-zona-empleado.component.css'],
 })
 export class EditorAsociacionesZonaEmpleadoComponent {
+  loginService: LoginService;
   private empleadosAsignados!: EmpleadoDTO[];
   private empleadosAsignables!: EmpleadoDTO[];
   private deseaAsignar: boolean = false;
-  loginService: LoginService;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -30,6 +31,7 @@ export class EditorAsociacionesZonaEmpleadoComponent {
     this.fetchEmpleadosAsignados();
     this.fetchEmpleadosAsignables();
   }
+
   fetchEmpleadosAsignados(): void {
     this.zonaService
       .getEmpleadosAsignados(this.getLetra())
@@ -39,6 +41,7 @@ export class EditorAsociacionesZonaEmpleadoComponent {
         );
       });
   }
+
   fetchEmpleadosAsignables(): void {
     this.zonaService
       .getEmpleadosAsignables(this.getLetra())
@@ -48,26 +51,33 @@ export class EditorAsociacionesZonaEmpleadoComponent {
         this.empleadosAsignables = empleados;
       });
   }
+
   getLetra(): string {
     return String(this.route.snapshot.paramMap.get('letra'));
   }
+
   getDeseaAsignar(): boolean {
     return this.deseaAsignar;
   }
+
   getEmpleadosAsignados(): EmpleadoDTO[] {
     return this.empleadosAsignados;
   }
+
   getEmpleadosAsignables(): EmpleadoDTO[] {
     return this.empleadosAsignables;
   }
+
   abrirSelectorEmpleados(): void {
     this.deseaAsignar = true;
   }
+
   asignarEmpleado(empleado: EmpleadoDTO): void {
     this.zonaService
       .asignarEmpleado(this.getLetra(), empleado)
       .subscribe(() => this.router.navigate(['administrador']));
   }
+
   removerEmpleado(empleado: EmpleadoDTO): void {
     this.zonaService
       .removeEmpleado(this.getLetra(), empleado.codigo)

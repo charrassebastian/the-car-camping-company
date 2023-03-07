@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { ZonaService } from '../servicios/zona/zona.service';
-import { ZonaDTO } from '../dto/zonadto';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ZonasConverter } from '../convertidores/zonasConverter';
-import { LoginService } from '../servicios/login/login.service';
+import {Component} from '@angular/core';
+import {ZonaService} from '../servicios/zona/zona.service';
+import {ZonaDTO} from '../dto/zonadto';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ZonasConverter} from '../convertidores/zonasConverter';
+import {LoginService} from '../servicios/login/login.service';
 
 @Component({
   selector: 'app-zona-editor',
@@ -17,6 +17,7 @@ export class ZonaEditorComponent {
   route!: ActivatedRoute;
   converter!: ZonasConverter;
   loginService: LoginService;
+
   constructor(
     service: ZonaService,
     router: Router,

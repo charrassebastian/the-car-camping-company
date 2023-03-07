@@ -3,8 +3,7 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Bienvenido, {{ empleado.nombre }}. A continuación podrá consultar sus
-          datos.
+          Welcome, {{ empleado.nombre }}. Here you will be able to see your data.
         </h2>
       </mat-card-content>
     </mat-card>
@@ -12,29 +11,29 @@
       <mat-card>
         <mat-card-content>
           <ul class="itemsContainer">
-            <li>Rol: empleado</li>
-            <li>Código: {{ empleado.codigo }}</li>
-            <li>Nombre: {{ empleado.nombre }}</li>
+            <li>Role: employee</li>
+            <li>Code: {{ empleado.codigo }}</li>
+            <li>Name: {{ empleado.nombre }}</li>
             <li>Password: {{ empleado.password }}</li>
             <li>
-              Dirección:
-              {{ empleado.direccion ?? "No se ha ingresado la dirección" }}
+              Address:
+              {{ empleado.direccion ?? "Not indicated" }}
             </li>
             <li>
-              Teléfono:
-              {{ empleado.telefono ?? "No se ha ingresado el teléfono" }}
+              Phone number:
+              {{ empleado.telefono ?? "Not indicated" }}
             </li>
             <li>
-              Especialidad:
+              Specialty:
               {{
-                empleado.especialidad ?? "No se ha ingresado la especialidad"
+              empleado.especialidad ?? "Not indicated"
               }}
             </li>
             <li>
-              Cantidad de vehiculos encargados por zona:
+              Amount of vehicles assigned by zone:
               <span
                 *ngIf="!(cantidadVehiculosEncargadosPorZona | keyvalue)?.length"
-                >0</span
+              >0</span
               >
               <ul
                 *ngIf="(cantidadVehiculosEncargadosPorZona | keyvalue)?.length"
@@ -57,10 +56,10 @@
   <div class="listaContainer">
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
-        <h2>Zonas asignadas: <span *ngIf="!zonas?.length">ninguna</span></h2>
+        <h2>Assigned zones: <span *ngIf="!zonas?.length">none</span></h2>
       </mat-card-content>
     </mat-card>
-    <div class="lista" *ngIf="zonas?.length">
+    <div *ngIf="zonas?.length" class="lista">
       <app-zona *ngFor="let zona of zonas" [zona]="zona"></app-zona>
     </div>
   </div>

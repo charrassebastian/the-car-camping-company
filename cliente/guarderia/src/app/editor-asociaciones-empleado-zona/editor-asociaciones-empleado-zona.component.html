@@ -3,46 +3,47 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Zonas asignadas:
-          <span *ngIf="!getZonasAsignadas()?.length">ninguna</span>
+          Assigned zones:
+          <span *ngIf="!getZonasAsignadas()?.length">none</span>
         </h2>
-      </mat-card-content></mat-card
+      </mat-card-content>
+    </mat-card
     >
     <div class="lista">
       <app-zona
-        *ngFor="let zona of getZonasAsignadas()"
-        [zona]="zona"
-        [borrable]="true"
         (borrar)="removerZona($event)"
+        *ngFor="let zona of getZonasAsignadas()"
+        [borrable]="true"
+        [zona]="zona"
       ></app-zona>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nueva zona"
-          class="agregarButton"
           (click)="abrirSelectorZonas()"
+          aria-label="Add new zone"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
       </div>
     </div>
   </div>
-  <div class="listaContainer" [hidden]="!getDeseaAsignar()">
+  <div [hidden]="!getDeseaAsignar()" class="listaContainer">
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Zonas que se pueden asignar:
-          <span *ngIf="!getZonasAsignables()?.length">ninguna</span>
+          Assignable zones:
+          <span *ngIf="!getZonasAsignables()?.length">none</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-zona
-        *ngFor="let zona of getZonasAsignables()"
-        [zona]="zona"
-        [asignable]="true"
         (asignar)="asignarZona($event)"
+        *ngFor="let zona of getZonasAsignables()"
+        [asignable]="true"
+        [zona]="zona"
       ></app-zona>
     </div>
   </div>

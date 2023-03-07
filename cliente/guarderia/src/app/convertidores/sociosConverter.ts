@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
-import { GarageDTO } from '../dto/garagedto';
-import { SocioDTO } from '../dto/sociodto';
-import { VehiculoDTO } from '../dto/vehiculodto';
-import { GaragesConverter } from './garagesConverter';
-import { VehiculosConverter } from './vehiculosConverter';
+import {Injectable} from '@angular/core';
+import {SocioDTO} from '../dto/sociodto';
+import {GaragesConverter} from './garagesConverter';
+import {VehiculosConverter} from './vehiculosConverter';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +10,9 @@ export class SociosConverter {
   constructor(
     private garagesConverter: GaragesConverter,
     private vehiculosConverter: VehiculosConverter
-  ) {}
+  ) {
+  }
+
   convertirSocio(socioModel: any): SocioDTO {
     let ingreso: Date | undefined | null = socioModel.ingreso;
     if (ingreso !== undefined && ingreso !== null) {

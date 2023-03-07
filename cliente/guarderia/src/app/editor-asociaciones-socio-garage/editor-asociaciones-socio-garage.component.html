@@ -3,46 +3,46 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Garages asignados:
-          <span *ngIf="!getGaragesAsignados()?.length">ninguno</span>
+          Assigned garages:
+          <span *ngIf="!getGaragesAsignados()?.length">none</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-garage
-        *ngFor="let garage of getGaragesAsignados()"
-        [garage]="garage"
-        [borrable]="true"
         (borrar)="removerGarage($event)"
+        *ngFor="let garage of getGaragesAsignados()"
+        [borrable]="true"
+        [garage]="garage"
       ></app-garage>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nuevo garage"
-          class="agregarButton"
           (click)="abrirSelectorGarages()"
+          aria-label="Add new garage"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
       </div>
     </div>
   </div>
-  <div class="listaContainer" [hidden]="!getDeseaAsignar()">
+  <div [hidden]="!getDeseaAsignar()" class="listaContainer">
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Garages que se pueden asignar:
-          <span *ngIf="!getGaragesAsignables()?.length">ninguno</span>
+          Assignable garages:
+          <span *ngIf="!getGaragesAsignables()?.length">none</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-garage
-        *ngFor="let garage of getGaragesAsignables()"
-        [garage]="garage"
-        [asignable]="true"
         (asignar)="asignarGarage($event)"
+        *ngFor="let garage of getGaragesAsignables()"
+        [asignable]="true"
+        [garage]="garage"
       ></app-garage>
     </div>
   </div>

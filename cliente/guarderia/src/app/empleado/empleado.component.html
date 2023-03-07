@@ -2,23 +2,23 @@
   <mat-card-content>
     <h3>{{ empleado.nombre }}</h3>
     <ul>
-      <li>Código: {{ empleado.codigo }}</li>
+      <li>Code: {{ empleado.codigo }}</li>
       <li>Password: {{ empleado.password }}</li>
       <li>
-        Dirección:
-        {{ empleado.direccion ?? "No se ha ingresado la dirección" }}
+        Address:
+        {{ empleado.direccion ?? "Not indicated" }}
       </li>
       <li>
-        Teléfono:
-        {{ empleado.telefono ?? "No se ha ingresado el teléfono" }}
+        Phone:
+        {{ empleado.telefono ?? "Not indicated" }}
       </li>
       <li>
-        Especialidad:
-        {{ empleado.especialidad ?? "No se ha ingresado la especialidad" }}
+        Specialty:
+        {{ empleado.especialidad ?? "Not indicated" }}
       </li>
-      <li>Letras de las zonas: {{ getLetrasZonas() }}</li>
+      <li>Zones letters: {{ getLetrasZonas() }}</li>
       <li>
-        Cantidad de vehiculos encargados por zona:
+        Amount of assigned vehicles by zone:
         <span *ngIf="!(cantidadVehiculosEncargadosPorZona | keyvalue)?.length">0</span>
         <ul *ngIf="(cantidadVehiculosEncargadosPorZona | keyvalue)?.length">
           <li
@@ -32,32 +32,32 @@
   </mat-card-content>
   <mat-card-actions>
     <button
-      mat-icon-button
-      *ngIf="asignable"
-      color="accent"
-      class="asignarButton"
-      aria-label="Asignar"
       (click)="this.asignar.emit(this.empleado)"
+      *ngIf="asignable"
+      aria-label="Assign"
+      class="asignarButton"
+      color="accent"
+      mat-icon-button
     >
       <mat-icon>add</mat-icon>
     </button>
     <button
-      mat-icon-button
-      *ngIf="editable"
-      color="accent"
-      class="editarButton"
-      aria-label="Editar"
       (click)="this.editar.emit(this.empleado.codigo)"
+      *ngIf="editable"
+      aria-label="Edit"
+      class="editarButton"
+      color="accent"
+      mat-icon-button
     >
       <mat-icon>edit</mat-icon>
     </button>
     <button
-      mat-icon-button
-      *ngIf="borrable"
-      color="warn"
-      class="borrarButton"
-      aria-label="Borrar"
       (click)="this.borrar.emit(this.empleado)"
+      *ngIf="borrable"
+      aria-label="Delete"
+      class="borrarButton"
+      color="warn"
+      mat-icon-button
     >
       <mat-icon>delete</mat-icon>
     </button>

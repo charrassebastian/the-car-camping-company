@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { catchError, EMPTY, Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { ZonaDTO } from 'src/app/dto/zonadto';
-import { GarageDTO } from 'src/app/dto/garagedto';
-import { EmpleadoDTO } from 'src/app/dto/empleadodto';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {catchError, EMPTY, Observable} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {ZonaDTO} from 'src/app/dto/zonadto';
+import {GarageDTO} from 'src/app/dto/garagedto';
+import {EmpleadoDTO} from 'src/app/dto/empleadodto';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +12,11 @@ import { Router } from '@angular/router';
 export class ZonaService {
   baseUrl = `zonas`;
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    headers: new HttpHeaders({'Content-Type': 'application/json'}),
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+  }
 
   getZona(letra: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${letra}`);
@@ -27,7 +28,7 @@ export class ZonaService {
 
   addZona(zona: ZonaDTO): Observable<any> {
     return this.http.post(`${this.baseUrl}`, zona, this.httpOptions).pipe(catchError((error: HttpErrorResponse) => {
-      if(error.status === 409){
+      if (error.status === 409) {
         this.router.navigate(['error/crearEntidadExistente']);
       }
       return EMPTY;

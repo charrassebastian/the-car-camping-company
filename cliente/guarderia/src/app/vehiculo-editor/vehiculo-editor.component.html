@@ -1,96 +1,103 @@
 <div *ngIf="this.loginService.user.role === 'administrador'">
   <mat-card [ngClass]="'subtituloContainer titulo'">
     <mat-card-content>
-      <h2>Ingrese los nuevos datos para el vehículo</h2>
+      <h2>Enter the new information for the vehicle</h2>
     </mat-card-content>
   </mat-card>
-  <form (ngSubmit)="onSubmit()" #vehiculoForm="ngForm">
+  <form #vehiculoForm="ngForm" (ngSubmit)="onSubmit()">
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Nombre del vehículo</h2>
+        <h2>Name of vehicle</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Nombre</mat-label>
+          <mat-label>Name</mat-label>
           <input
-            type="text"
+            [(ngModel)]="model.nombre"
             matInput
             name="nombre"
-            [(ngModel)]="model.nombre"
-          /> </mat-form-field
-      ></mat-card-content>
+            type="text"
+          /></mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Tipo de vehículo</h2>
+        <h2>Type of vehicle</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Tipo</mat-label>
+          <mat-label>Type</mat-label>
           <input
-            type="text"
+            [(ngModel)]="model.tipo"
             matInput
             name="tipo"
-            [(ngModel)]="model.tipo"
-          /> </mat-form-field
-      ></mat-card-content>
+            type="text"
+          /></mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Alto del vehículo</h2>
+        <h2>Height of the vehicle</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Alto</mat-label>
+          <mat-label>Height</mat-label>
           <input
-            type="number"
+            [(ngModel)]="model.alto"
             matInput
             name="alto"
-            [(ngModel)]="model.alto"
-          /> </mat-form-field
-      ></mat-card-content>
+            type="number"
+          /></mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Ancho del vehículo</h2>
+        <h2>Width of the vehicle</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Ancho</mat-label>
+          <mat-label>Witdh</mat-label>
           <input
-            type="number"
+            [(ngModel)]="model.ancho"
             matInput
             name="ancho"
-            [(ngModel)]="model.ancho"
-          /> </mat-form-field
-      ></mat-card-content>
+            type="number"
+          /></mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Profundidad del vehículo</h2>
+        <h2>Depth of the vehicle</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Profundidad</mat-label>
+          <mat-label>Depth</mat-label>
           <input
-            type="number"
+            [(ngModel)]="model.profundidad"
             matInput
             name="profundidad"
-            [(ngModel)]="model.profundidad"
-          /> </mat-form-field
-      ></mat-card-content>
+            type="number"
+          /></mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Fecha de asignación del garage</h2>
+        <h2>Date of assignment of garage</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Fecha</mat-label>
+          <mat-label>Date</mat-label>
           <input
-            matInput
-            [matDatepicker]="picker"
-            name="fechaAsignacionGarage"
             [(ngModel)]="model.fechaAsignacionGarage"
+            [matDatepicker]="picker"
+            matInput
+            name="fechaAsignacionGarage"
           />
           <mat-hint>DD/MM/YYYY</mat-hint>
           <mat-datepicker-toggle
-            matIconSuffix
             [for]="picker"
+            matIconSuffix
           ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker> </mat-form-field
-      ></mat-card-content>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <div class="submitContainer">
-      <button type="submit" mat-fab color="accent">
+      <button color="accent" mat-fab type="submit">
         <mat-icon>send</mat-icon>
       </button>
     </div>

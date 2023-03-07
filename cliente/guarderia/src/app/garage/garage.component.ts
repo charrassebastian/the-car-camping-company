@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { GarageDTO } from '../dto/garagedto';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {GarageDTO} from '../dto/garagedto';
 
 @Component({
   selector: 'app-garage',

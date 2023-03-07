@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { catchError, EMPTY, Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { SocioDTO } from 'src/app/dto/sociodto';
-import { VehiculoDTO } from 'src/app/dto/vehiculodto';
-import { GarageDTO } from 'src/app/dto/garagedto';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {catchError, EMPTY, Observable} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {SocioDTO} from 'src/app/dto/sociodto';
+import {VehiculoDTO} from 'src/app/dto/vehiculodto';
+import {GarageDTO} from 'src/app/dto/garagedto';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +12,11 @@ import { Router } from '@angular/router';
 export class SocioService {
   baseUrl = `socios`;
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    headers: new HttpHeaders({'Content-Type': 'application/json'}),
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+  }
 
   getSocio(dni: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${dni}`);
@@ -27,7 +28,7 @@ export class SocioService {
 
   addSocio(socio: SocioDTO): Observable<any> {
     return this.http.post(`${this.baseUrl}`, socio, this.httpOptions).pipe(catchError((error: HttpErrorResponse) => {
-      if(error.status === 409){
+      if (error.status === 409) {
         this.router.navigate(['error/crearEntidadExistente']);
       }
       return EMPTY;

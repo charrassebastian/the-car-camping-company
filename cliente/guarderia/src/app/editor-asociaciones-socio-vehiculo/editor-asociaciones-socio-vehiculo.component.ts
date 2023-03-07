@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SociosConverter } from '../convertidores/sociosConverter';
-import { VehiculosConverter } from '../convertidores/vehiculosConverter';
-import { SocioDTO } from '../dto/sociodto';
-import { VehiculoDTO } from '../dto/vehiculodto';
-import { LoginService } from '../servicios/login/login.service';
-import { SocioService } from '../servicios/socio/socio.service';
-import { VehiculoService } from '../servicios/vehiculo/vehiculo.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SociosConverter} from '../convertidores/sociosConverter';
+import {VehiculosConverter} from '../convertidores/vehiculosConverter';
+import {SocioDTO} from '../dto/sociodto';
+import {VehiculoDTO} from '../dto/vehiculodto';
+import {LoginService} from '../servicios/login/login.service';
+import {SocioService} from '../servicios/socio/socio.service';
+import {VehiculoService} from '../servicios/vehiculo/vehiculo.service';
 
 @Component({
   selector: 'app-editor-asociaciones-socio-vehiculo',
@@ -14,10 +14,11 @@ import { VehiculoService } from '../servicios/vehiculo/vehiculo.service';
   styleUrls: ['./editor-asociaciones-socio-vehiculo.component.css'],
 })
 export class EditorAsociacionesSocioVehiculoComponent {
+  loginService: LoginService;
   private vehiculosAsignables!: VehiculoDTO[];
   private deseaAsignar: boolean = false;
-  private socio = new SocioDTO(1, 'nombre', 'password');
-  loginService: LoginService;
+  private socio = new SocioDTO(1, 'name', 'password');
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -31,6 +32,7 @@ export class EditorAsociacionesSocioVehiculoComponent {
     this.getSocio();
     this.fetchVehiculosAsignables();
   }
+
   getSocio(): void {
     this.socioService
       .getSocio(Number(this.route.snapshot.paramMap.get('dni')))
@@ -38,6 +40,7 @@ export class EditorAsociacionesSocioVehiculoComponent {
         (socio) => (this.socio = this.sociosConverter.convertirSocio(socio))
       );
   }
+
   contieneSocioActual(vehiculo: VehiculoDTO): boolean {
     let contieneSocio = false;
     if (this.socio?.vehiculos?.length) {
@@ -51,6 +54,7 @@ export class EditorAsociacionesSocioVehiculoComponent {
     }
     return contieneSocio;
   }
+
   fetchVehiculosAsignables(): void {
     this.socioService.getVehiculosAsignables(this.getDni()).subscribe((vehiculos) => {
       let vehiculosAsignables =
@@ -58,26 +62,33 @@ export class EditorAsociacionesSocioVehiculoComponent {
       this.vehiculosAsignables = vehiculosAsignables;
     });
   }
+
   getDni(): number {
     return Number(this.route.snapshot.paramMap.get('dni'));
   }
+
   getDeseaAsignar(): boolean {
     return this.deseaAsignar;
   }
+
   getVehiculosAsignados(): VehiculoDTO[] {
     return this.socio.vehiculos ?? [];
   }
+
   getVehiculosAsignables(): VehiculoDTO[] {
     return this.vehiculosAsignables;
   }
+
   abrirSelectorVehiculos(): void {
     this.deseaAsignar = true;
   }
+
   asignarVehiculo(vehiculo: VehiculoDTO): void {
     this.socioService
       .asignarVehiculo(this.getDni(), vehiculo)
       .subscribe(() => this.router.navigate(['administrador']));
   }
+
   removerVehiculo(vehiculo: VehiculoDTO): void {
     this.socioService
       .removeVehiculo(this.getDni(), vehiculo.matricula)

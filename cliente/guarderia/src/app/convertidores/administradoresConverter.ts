@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { AdministradorDTO } from '../dto/administradordto';
+import {Injectable} from '@angular/core';
+import {AdministradorDTO} from '../dto/administradordto';
 
 @Injectable({
   providedIn: 'root',

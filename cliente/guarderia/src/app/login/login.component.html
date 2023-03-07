@@ -1,42 +1,49 @@
 <div class="bienvenida">
   <mat-card [ngClass]="'subtituloContainer'">
     <mat-card-content>
-      <h2>Inicio de Sesión</h2>
+      <h2>Log In</h2>
     </mat-card-content>
   </mat-card>
 </div>
-<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
   <mat-card class="formCard">
     <mat-card-header
-      ><mat-card-title>Nombre de usuario</mat-card-title></mat-card-header
+    >
+      <mat-card-title>Username</mat-card-title>
+    </mat-card-header
     >
     <mat-card-content>
       <mat-form-field appearance="outline" required>
-        <mat-label>Nombre</mat-label>
+        <mat-label>Name</mat-label>
         <input
-          type="text"
+          [(ngModel)]="service.user.user"
           matInput
           name="user"
-          [(ngModel)]="service.user.user"
-        /> </mat-form-field
-    ></mat-card-content>
+          type="text"
+        /></mat-form-field
+      >
+    </mat-card-content>
   </mat-card>
   <mat-card class="formCard">
     <mat-card-header
-      ><mat-card-title>Contraseña</mat-card-title></mat-card-header
+    >
+      <mat-card-title>Password</mat-card-title>
+    </mat-card-header
     >
     <mat-card-content>
       <mat-form-field appearance="outline" required>
         <mat-label>Password</mat-label>
         <input
-          type="password"
+          [(ngModel)]="service.user.password"
           matInput
           name="password"
-          [(ngModel)]="service.user.password"
-        /> </mat-form-field></mat-card-content
-  ></mat-card>
+          type="password"
+        /></mat-form-field>
+    </mat-card-content
+    >
+  </mat-card>
   <div class="submitContainer">
-    <button type="submit" mat-fab color="accent">
+    <button color="accent" mat-fab type="submit">
       <mat-icon>send</mat-icon>
     </button>
   </div>

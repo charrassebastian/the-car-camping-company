@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { LoginService } from './servicios/login/login.service';
+import {Component} from '@angular/core';
+import {LoginService} from './servicios/login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,9 @@ import { LoginService } from './servicios/login/login.service';
 })
 export class AppComponent {
 
-  title = 'Guardería de Vehículos';
+  title = 'The Car Camping Company\'s Gestion System';
   service: LoginService;
+
   constructor(service: LoginService) {
     this.service = service;
   }

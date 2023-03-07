@@ -1,54 +1,58 @@
 <div *ngIf="this.loginService.user.role === 'administrador'">
   <mat-card [ngClass]="'subtituloContainer titulo'">
     <mat-card-content>
-      <h2>Ingrese los nuevos datos para el garage</h2>
+      <h2>Enter the new information for the garage</h2>
     </mat-card-content>
   </mat-card>
-  <form (ngSubmit)="onSubmit()" #garageForm="ngForm">
+  <form #garageForm="ngForm" (ngSubmit)="onSubmit()">
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Lectura del contador de luz</h2>
+        <h2>Light meter reading</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Lectura</mat-label>
+          <mat-label>Reading</mat-label>
           <input
-            type="number"
+            [(ngModel)]="model.lecturaContadorLuz"
             matInput
             name="lecturaContadorLuz"
-            [(ngModel)]="model.lecturaContadorLuz"
-          /> </mat-form-field
-      ></mat-card-content>
-    </mat-card>
-    <mat-card class="formCard">
-      <mat-card-content>
-        <h2>Servicios de mantenimiento</h2>
-        <mat-checkbox
-          [(ngModel)]="model.clienteServiciosMantenimiento"
-          name="clienteServiciosMantenimiento"
-          >¿Ha contratado el cliente servicios de mantenimiento?</mat-checkbox
+            type="number"
+          /></mat-form-field
         >
       </mat-card-content>
     </mat-card>
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Fecha de compra</h2>
+        <h2>Maintenance services</h2>
+        <mat-checkbox
+          [(ngModel)]="model.clienteServiciosMantenimiento"
+          name="clienteServiciosMantenimiento"
+        >¿Has the client contracted manteinment services?
+        </mat-checkbox
+        >
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="formCard">
+      <mat-card-content>
+        <h2>Date of purchase</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Fecha</mat-label>
+          <mat-label>Date</mat-label>
           <input
-            matInput
-            [matDatepicker]="picker"
-            name="fechaCompraGarage"
             [(ngModel)]="model.fechaCompraGarage"
+            [matDatepicker]="picker"
+            matInput
+            name="fechaCompraGarage"
           />
           <mat-hint>DD/MM/YYYY</mat-hint>
           <mat-datepicker-toggle
-            matIconSuffix
             [for]="picker"
+            matIconSuffix
           ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker> </mat-form-field
-      ></mat-card-content>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <div class="submitContainer">
-      <button type="submit" mat-fab color="accent">
+      <button color="accent" mat-fab type="submit">
         <mat-icon>send</mat-icon>
       </button>
     </div>

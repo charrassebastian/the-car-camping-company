@@ -3,46 +3,46 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Vehículos asignados:
-          <span *ngIf="!getVehiculosAsignados()?.length">ninguno</span>
+          Assigned vehicles:
+          <span *ngIf="!getVehiculosAsignados()?.length">none</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-vehiculo
-        *ngFor="let vehiculo of getVehiculosAsignados()"
-        [vehiculo]="vehiculo"
-        [borrable]="true"
         (borrar)="removerVehiculo($event)"
+        *ngFor="let vehiculo of getVehiculosAsignados()"
+        [borrable]="true"
+        [vehiculo]="vehiculo"
       ></app-vehiculo>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nuevo vehiculo"
-          class="agregarButton"
           (click)="abrirSelectorVehiculos()"
+          aria-label="Add new vehicle"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
       </div>
     </div>
   </div>
-  <div class="listaContainer" [hidden]="!getDeseaAsignar()">
+  <div [hidden]="!getDeseaAsignar()" class="listaContainer">
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Vehículos que se pueden asignar:
-          <span *ngIf="!getVehiculosAsignables()?.length">ninguno</span>
+          Assignable vehicles:
+          <span *ngIf="!getVehiculosAsignables()?.length">none</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-vehiculo
-        *ngFor="let vehiculo of getVehiculosAsignables()"
-        [vehiculo]="vehiculo"
-        [asignable]="true"
         (asignar)="asignarVehiculo($event)"
+        *ngFor="let vehiculo of getVehiculosAsignables()"
+        [asignable]="true"
+        [vehiculo]="vehiculo"
       ></app-vehiculo>
     </div>
   </div>

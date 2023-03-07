@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { GaragesConverter } from '../convertidores/garagesConverter';
-import { VehiculosConverter } from '../convertidores/vehiculosConverter';
-import { GarageDTO } from '../dto/garagedto';
-import { LoginService } from '../servicios/login/login.service';
-import { VehiculoService } from '../servicios/vehiculo/vehiculo.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {GaragesConverter} from '../convertidores/garagesConverter';
+import {VehiculosConverter} from '../convertidores/vehiculosConverter';
+import {GarageDTO} from '../dto/garagedto';
+import {LoginService} from '../servicios/login/login.service';
+import {VehiculoService} from '../servicios/vehiculo/vehiculo.service';
 
 @Component({
   selector: 'app-editor-asociaciones-vehiculo-garage',
@@ -12,10 +12,11 @@ import { VehiculoService } from '../servicios/vehiculo/vehiculo.service';
   styleUrls: ['./editor-asociaciones-vehiculo-garage.component.css'],
 })
 export class EditorAsociacionesVehiculoGarageComponent {
+  loginService: LoginService;
   private garageAsignado?: GarageDTO;
   private garagesAsignables!: GarageDTO[];
   private deseaAsignar: boolean = false;
-  loginService: LoginService;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -28,6 +29,7 @@ export class EditorAsociacionesVehiculoGarageComponent {
     this.fetchGarageAsignado();
     this.fetchGaragesAsignables();
   }
+
   fetchGarageAsignado(): void {
     this.vehiculoService
       .getVehiculo(this.getMatricula())
@@ -36,6 +38,7 @@ export class EditorAsociacionesVehiculoGarageComponent {
         this.garageAsignado = vehiculo.garage;
       });
   }
+
   fetchGaragesAsignables(): void {
     this.vehiculoService
       .getGaragesAsignables(this.getMatricula())
@@ -44,26 +47,33 @@ export class EditorAsociacionesVehiculoGarageComponent {
         this.garagesAsignables = garages;
       });
   }
+
   getMatricula(): string {
     return this.route.snapshot.paramMap.get('matricula') ?? '';
   }
+
   getDeseaAsignar(): boolean {
     return this.deseaAsignar;
   }
+
   getGarageAsignado(): GarageDTO | undefined {
     return this.garageAsignado;
   }
+
   getGaragesAsignables(): GarageDTO[] {
     return this.garagesAsignables;
   }
+
   abrirSelectorGarages(): void {
     this.deseaAsignar = true;
   }
+
   asignarGarage(garage: GarageDTO): void {
     this.vehiculoService
       .asignarGarage(this.getMatricula(), garage)
       .subscribe(() => this.router.navigate(['administrador']));
   }
+
   removerGarage(): void {
     this.vehiculoService
       .removeGarage(this.getMatricula())

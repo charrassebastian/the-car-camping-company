@@ -3,46 +3,46 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Empleados asignados:
-          <span *ngIf="!getEmpleadosAsignados()?.length">ninguno</span>
+          Assigned employees:
+          <span *ngIf="!getEmpleadosAsignados()?.length">none</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-empleado
-        *ngFor="let empleado of getEmpleadosAsignados()"
-        [empleado]="empleado"
-        [borrable]="true"
         (borrar)="removerEmpleado($event)"
+        *ngFor="let empleado of getEmpleadosAsignados()"
+        [borrable]="true"
+        [empleado]="empleado"
       ></app-empleado>
       <div class="agregarContainer">
         <button
-          mat-fab
-          color="accent"
-          aria-label="Agregar nuevo empleado"
-          class="agregarButton"
           (click)="abrirSelectorEmpleados()"
+          aria-label="Add new employee"
+          class="agregarButton"
+          color="accent"
+          mat-fab
         >
           <mat-icon>add</mat-icon>
         </button>
       </div>
     </div>
   </div>
-  <div class="listaContainer" [hidden]="!getDeseaAsignar()">
+  <div [hidden]="!getDeseaAsignar()" class="listaContainer">
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Empleados que se pueden asignar:
-          <span *ngIf="!getEmpleadosAsignables()?.length">ninguno</span>
+          Assignable employees:
+          <span *ngIf="!getEmpleadosAsignables()?.length">none</span>
         </h2>
       </mat-card-content>
     </mat-card>
     <div class="lista">
       <app-empleado
-        *ngFor="let empleado of getEmpleadosAsignables()"
-        [empleado]="empleado"
-        [asignable]="true"
         (asignar)="asignarEmpleado($event)"
+        *ngFor="let empleado of getEmpleadosAsignables()"
+        [asignable]="true"
+        [empleado]="empleado"
       ></app-empleado>
     </div>
   </div>

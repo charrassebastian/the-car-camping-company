@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { AdministradorService } from '../servicios/administrador/administrador.service';
-import { AdministradorDTO } from '../dto/administradordto';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {AdministradorService} from '../servicios/administrador/administrador.service';
+import {AdministradorDTO} from '../dto/administradordto';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-administrador-creador',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./administrador.creador.component.css'],
 })
 export class AdministradorCreadorComponent {
-  model = new AdministradorDTO(1, 'Nombre del administrador', 'Password');
+  model = new AdministradorDTO(1, 'Name of the administrator', 'Password');
   service!: AdministradorService;
   router!: Router;
 
@@ -17,6 +17,7 @@ export class AdministradorCreadorComponent {
     this.service = service;
     this.router = router;
   }
+
   onSubmit() {
     this.service
       .addAdministrador(this.model)

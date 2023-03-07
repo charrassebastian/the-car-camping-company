@@ -1,5 +1,4 @@
-import { EmpleadoDTO } from './empleadodto';
-import { GarageDTO } from './garagedto';
+import {GarageDTO} from './garagedto';
 
 export class ZonaDTO {
   letra: string;

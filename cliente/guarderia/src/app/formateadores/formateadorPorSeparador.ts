@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { EmpleadoDTO } from '../dto/empleadodto';
-import { GarageDTO } from '../dto/garagedto';
-import { SocioDTO } from '../dto/sociodto';
-import { VehiculoDTO } from '../dto/vehiculodto';
-import { ZonaDTO } from '../dto/zonadto';
+import {Injectable} from '@angular/core';
+import {EmpleadoDTO} from '../dto/empleadodto';
+import {GarageDTO} from '../dto/garagedto';
+import {SocioDTO} from '../dto/sociodto';
+import {VehiculoDTO} from '../dto/vehiculodto';
+import {ZonaDTO} from '../dto/zonadto';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +20,7 @@ export class FormateadorPorSeparador {
     }
     return res;
   }
+
   formatearNumeros(numeros: number[], separador: string): string {
     let res = '';
     if (numeros.length) {
@@ -31,6 +32,7 @@ export class FormateadorPorSeparador {
     }
     return res;
   }
+
   formatearCodigosEmpleados(
     empleados: EmpleadoDTO[],
     separador: string
@@ -41,6 +43,7 @@ export class FormateadorPorSeparador {
     }
     return this.formatearNumeros(codigos, separador);
   }
+
   formatearNumerosGarages(garages: GarageDTO[], separador: string): string {
     let numerosGarages = [];
     for (let garage of garages) {
@@ -48,6 +51,7 @@ export class FormateadorPorSeparador {
     }
     return this.formatearNumeros(numerosGarages, separador);
   }
+
   formatearDocumentosSocios(socios: SocioDTO[], separador: string): string {
     let documentos = [];
     for (let socio of socios) {
@@ -55,6 +59,7 @@ export class FormateadorPorSeparador {
     }
     return this.formatearNumeros(documentos, separador);
   }
+
   formatearMatriculasVehiculos(
     vehiculos: VehiculoDTO[],
     separador: string
@@ -65,6 +70,7 @@ export class FormateadorPorSeparador {
     }
     return this.formatearCadenas(matriculas, separador);
   }
+
   formatearLetrasZonas(zonas: ZonaDTO[], separador: string): string {
     let letras = [];
     for (let zona of zonas) {

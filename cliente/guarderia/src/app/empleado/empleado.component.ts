@@ -1,16 +1,9 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { ZonasConverter } from '../convertidores/zonasConverter';
-import { EmpleadoDTO } from '../dto/empleadodto';
-import { ZonaDTO } from '../dto/zonadto';
-import { FormateadorPorSeparador } from '../formateadores/formateadorPorSeparador';
-import { EmpleadoService } from '../servicios/empleado/empleado.service';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges,} from '@angular/core';
+import {ZonasConverter} from '../convertidores/zonasConverter';
+import {EmpleadoDTO} from '../dto/empleadodto';
+import {ZonaDTO} from '../dto/zonadto';
+import {FormateadorPorSeparador} from '../formateadores/formateadorPorSeparador';
+import {EmpleadoService} from '../servicios/empleado/empleado.service';
 
 @Component({
   selector: 'app-empleado',
@@ -34,17 +27,21 @@ export class EmpleadoComponent implements OnChanges {
   asignar = new EventEmitter<EmpleadoDTO>();
   zonas?: ZonaDTO[];
   cantidadVehiculosEncargadosPorZona?: any;
+
   constructor(
     private service: EmpleadoService,
     private converter: ZonasConverter,
     private formatter: FormateadorPorSeparador
-  ) {}
+  ) {
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['empleado'].currentValue.codigo !== undefined) {
       this.fetchZonas();
       this.fetchCantidadVehiculosZonas();
     }
   }
+
   fetchCantidadVehiculosZonas(): void {
     this.service
       .getCantidadVehiculosAsignadosPorZona(this.empleado.codigo)
@@ -52,6 +49,7 @@ export class EmpleadoComponent implements OnChanges {
         this.cantidadVehiculosEncargadosPorZona = cantidades;
       });
   }
+
   fetchZonas(): void {
     this.service
       .getZonasAsignadas(this.empleado.codigo)
@@ -59,9 +57,10 @@ export class EmpleadoComponent implements OnChanges {
         this.zonas = this.converter.convertirZonas(zonasAsignadasModel);
       });
   }
+
   getLetrasZonas(): string {
     return this.zonas?.length
       ? this.formatter.formatearLetrasZonas(this.zonas, ', ')
-      : 'ninguna';
+      : 'none';
   }
 }

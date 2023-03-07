@@ -1,54 +1,54 @@
 <mat-card class="entidad">
   <mat-card-content>
-    <h3>Matrícula "{{ vehiculo.matricula }}"</h3>
+    <h3>License plate number "{{ vehiculo.matricula }}"</h3>
     <ul>
-      <li>Nombre: {{ vehiculo.nombre ?? "No se ha ingresado" }}</li>
-      <li>Tipo: {{ vehiculo.tipo ?? "No se ha ingresado" }}</li>
-      <li>Alto: {{ vehiculo.alto ?? "No se ha ingresado" }}</li>
-      <li>Ancho: {{ vehiculo.ancho ?? "No se ha ingresado" }}</li>
-      <li>Profundidad: {{ vehiculo.profundidad ?? "No se ha ingresado" }}</li>
+      <li>Name: {{ vehiculo.nombre ?? "Not indicated" }}</li>
+      <li>Type: {{ vehiculo.tipo ?? "Not indicated" }}</li>
+      <li>Height: {{ vehiculo.alto ?? "Not indicated" }}</li>
+      <li>Width: {{ vehiculo.ancho ?? "Not indicated" }}</li>
+      <li>Depth: {{ vehiculo.profundidad ?? "Not indicated" }}</li>
       <li>
-        Número de garage:
+        Number of the garage:
         {{
-          vehiculo.garage?.numeroGarage
-            ? vehiculo.garage!.numeroGarage
-            : "No se ha ingresado"
+        vehiculo.garage?.numeroGarage
+          ? vehiculo.garage!.numeroGarage
+          : "Not indicated"
         }}
       </li>
       <li>
-        Fecha asignación de garage:
-        {{ vehiculo.fechaAsignacionGarage?.toLocaleDateString() ?? "No se ha ingresado" }}
+        Date of assignment of garage:
+        {{ vehiculo.fechaAsignacionGarage?.toLocaleDateString() ?? "Not indicated" }}
       </li>
     </ul>
   </mat-card-content>
   <mat-card-actions>
     <button
-      mat-icon-button
-      *ngIf="asignable"
-      color="accent"
-      class="asignarButton"
-      aria-label="Asignar"
       (click)="this.asignar.emit(this.vehiculo)"
+      *ngIf="asignable"
+      aria-label="Assign"
+      class="asignarButton"
+      color="accent"
+      mat-icon-button
     >
       <mat-icon>add</mat-icon>
     </button>
     <button
-      mat-icon-button
-      *ngIf="editable"
-      color="accent"
-      class="editarButton"
-      aria-label="Editar"
       (click)="this.editar.emit(this.vehiculo.matricula)"
+      *ngIf="editable"
+      aria-label="Edit"
+      class="editarButton"
+      color="accent"
+      mat-icon-button
     >
       <mat-icon>edit</mat-icon>
     </button>
     <button
-      mat-icon-button
-      *ngIf="borrable"
-      color="warn"
-      class="borrarButton"
-      aria-label="Borrar"
       (click)="this.borrar.emit(this.vehiculo)"
+      *ngIf="borrable"
+      aria-label="Delete"
+      class="borrarButton"
+      color="warn"
+      mat-icon-button
     >
       <mat-icon>delete</mat-icon>
     </button>

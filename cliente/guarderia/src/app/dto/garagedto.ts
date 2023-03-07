@@ -3,6 +3,7 @@ export class GarageDTO {
   lecturaContadorLuz?: number;
   clienteServiciosMantenimiento?: boolean;
   fechaCompraGarage?: Date;
+
   constructor(
     numeroGarage: number,
     lecturaContadorLuz?: number,

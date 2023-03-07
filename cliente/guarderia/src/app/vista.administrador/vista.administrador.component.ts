@@ -1,26 +1,27 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AdministradoresConverter } from '../convertidores/administradoresConverter';
-import { EmpleadosConverter } from '../convertidores/empleadosConverter';
-import { GaragesConverter } from '../convertidores/garagesConverter';
-import { SociosConverter } from '../convertidores/sociosConverter';
-import { VehiculosConverter } from '../convertidores/vehiculosConverter';
-import { ZonasConverter } from '../convertidores/zonasConverter';
-import { AdministradorDTO } from '../dto/administradordto';
-import { EmpleadoDTO } from '../dto/empleadodto';
-import { GarageDTO } from '../dto/garagedto';
-import { SocioDTO } from '../dto/sociodto';
-import { VehiculoDTO } from '../dto/vehiculodto';
-import { ZonaDTO } from '../dto/zonadto';
-import { ErrorBorrarEntidadAsociacionVigenteComponent } from '../error-borrar-entidad-asociacion-vigente/error-borrar-entidad-asociacion-vigente.component';
-import { AdministradorService } from '../servicios/administrador/administrador.service';
-import { EmpleadoService } from '../servicios/empleado/empleado.service';
-import { ErrorBorrarEntidadAsociacionVigenteService } from '../servicios/error/error-borrar-entidad-asociacion-vigente.service';
-import { GarageService } from '../servicios/garage/garage.service';
-import { LoginService } from '../servicios/login/login.service';
-import { SocioService } from '../servicios/socio/socio.service';
-import { VehiculoService } from '../servicios/vehiculo/vehiculo.service';
-import { ZonaService } from '../servicios/zona/zona.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AdministradoresConverter} from '../convertidores/administradoresConverter';
+import {EmpleadosConverter} from '../convertidores/empleadosConverter';
+import {GaragesConverter} from '../convertidores/garagesConverter';
+import {SociosConverter} from '../convertidores/sociosConverter';
+import {VehiculosConverter} from '../convertidores/vehiculosConverter';
+import {ZonasConverter} from '../convertidores/zonasConverter';
+import {AdministradorDTO} from '../dto/administradordto';
+import {EmpleadoDTO} from '../dto/empleadodto';
+import {GarageDTO} from '../dto/garagedto';
+import {SocioDTO} from '../dto/sociodto';
+import {VehiculoDTO} from '../dto/vehiculodto';
+import {ZonaDTO} from '../dto/zonadto';
+import {AdministradorService} from '../servicios/administrador/administrador.service';
+import {EmpleadoService} from '../servicios/empleado/empleado.service';
+import {
+  ErrorBorrarEntidadAsociacionVigenteService
+} from '../servicios/error/error-borrar-entidad-asociacion-vigente.service';
+import {GarageService} from '../servicios/garage/garage.service';
+import {LoginService} from '../servicios/login/login.service';
+import {SocioService} from '../servicios/socio/socio.service';
+import {VehiculoService} from '../servicios/vehiculo/vehiculo.service';
+import {ZonaService} from '../servicios/zona/zona.service';
 
 @Component({
   selector: 'app-vista-administrador',
@@ -167,9 +168,9 @@ export class VistaAdministradorComponent {
     this.empleadoService
       .getZonasAsignadas(empleado.codigo)
       .subscribe((zonasAsignadasModel) => {
-        if(zonasAsignadasModel){
+        if (zonasAsignadasModel) {
           zonasAsignadas =
-          this.zonasConverter.convertirZonas(zonasAsignadasModel);  
+            this.zonasConverter.convertirZonas(zonasAsignadasModel);
         }
         if (zonasAsignadas?.length) {
           this.errorBorrarEntidadAsociacionVigenteService.clear();
@@ -193,13 +194,13 @@ export class VistaAdministradorComponent {
     this.garageService
       .getSocioAsignado(garage.numeroGarage)
       .subscribe((socioAsignadoModel) => {
-        if(socioAsignadoModel){
+        if (socioAsignadoModel) {
           socioAsignado = this.sociosConverter.convertirSocio(socioAsignadoModel);
         }
         this.garageService
           .getVehiculoAsignado(garage.numeroGarage)
           .subscribe((vehiculoAsignadoModel) => {
-            if(vehiculoAsignadoModel){
+            if (vehiculoAsignadoModel) {
               vehiculoAsignado = this.vehiculosConverter.convertirVehiculo(
                 vehiculoAsignadoModel
               );
@@ -207,9 +208,9 @@ export class VistaAdministradorComponent {
             this.garageService
               .getZonaAsignada(garage.numeroGarage)
               .subscribe((zonaAsignadaModel) => {
-                if(zonaAsignadaModel){
+                if (zonaAsignadaModel) {
                   zonaAsignada =
-                  this.zonasConverter.convertirZona(zonaAsignadaModel);
+                    this.zonasConverter.convertirZona(zonaAsignadaModel);
                 }
                 if (socioAsignado || vehiculoAsignado || zonaAsignada) {
                   this.errorBorrarEntidadAsociacionVigenteService.clear();
@@ -270,7 +271,7 @@ export class VistaAdministradorComponent {
     this.vehiculoService
       .getSocioAsignado(vehiculo.matricula)
       .subscribe((socioAsignadoModel) => {
-        if(socioAsignadoModel){
+        if (socioAsignadoModel) {
           socioAsignado = this.sociosConverter.convertirSocio(socioAsignadoModel);
         }
         if (vehiculo.garage || socioAsignado) {
@@ -300,7 +301,7 @@ export class VistaAdministradorComponent {
     this.zonaService
       .getEmpleadosAsignados(zona.letra)
       .subscribe((empleadosAsignadosModel) => {
-        if(empleadosAsignadosModel){
+        if (empleadosAsignadosModel) {
           empleadosAsignados = this.empleadosConverter.convertirEmpleados(
             empleadosAsignadosModel
           );

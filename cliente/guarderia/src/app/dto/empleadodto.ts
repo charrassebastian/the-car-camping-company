@@ -1,5 +1,3 @@
-import { ZonaDTO } from './zonadto';
-
 export class EmpleadoDTO {
   codigo: number;
   nombre: string;

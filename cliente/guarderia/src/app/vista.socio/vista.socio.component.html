@@ -3,8 +3,7 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Bienvenido, {{ socio.nombre }}. A continuación podrá consultar sus
-          datos.
+          Welcome, {{ socio.nombre }}. Here you will be able to see your data
         </h2>
       </mat-card-content>
     </mat-card>
@@ -12,13 +11,13 @@
       <mat-card>
         <mat-card-content>
           <ul class="itemsContainer">
-            <li>Rol: socio</li>
-            <li>Dni: {{ socio.dni }}</li>
-            <li>Nombre: {{ socio.nombre }}</li>
+            <li>Role: partner</li>
+            <li>ID: {{ socio.dni }}</li>
+            <li>Name: {{ socio.nombre }}</li>
             <li>Password: {{ socio.password }}</li>
-            <li>Dirección: {{ socio.direccion ?? "No se ha ingresado" }}</li>
-            <li>Teléfono: {{ socio.telefono ?? "No se ha ingresado" }}</li>
-            <li>Ingreso: {{ socio.ingreso ?? "No se ha ingresado" }}</li>
+            <li>Address: {{ socio.direccion ?? "Not indicated" }}</li>
+            <li>Phone number: {{ socio.telefono ?? "Not indicated" }}</li>
+            <li>Date of entrance: {{ socio.ingreso?.toLocaleDateString() ?? "Not indicated" }}</li>
           </ul>
         </mat-card-content>
       </mat-card>
@@ -29,7 +28,7 @@
       <mat-card-content>
         <h2>
           Garages:
-          <span *ngIf="!socio.garages?.length">no tiene ningún garage</span>
+          <span *ngIf="!socio.garages?.length">None found</span>
         </h2>
       </mat-card-content>
     </mat-card>
@@ -44,8 +43,8 @@
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
         <h2>
-          Vehículos:
-          <span *ngIf="!socio.vehiculos?.length">no tiene ningún vehículo</span>
+          Vehicles:
+          <span *ngIf="!socio.vehiculos?.length">None found</span>
         </h2>
       </mat-card-content>
     </mat-card>

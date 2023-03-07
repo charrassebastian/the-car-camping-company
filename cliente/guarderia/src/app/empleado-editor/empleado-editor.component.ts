@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { EmpleadosConverter } from '../convertidores/empleadosConverter';
-import { EmpleadoDTO } from '../dto/empleadodto';
-import { EmpleadoService } from '../servicios/empleado/empleado.service';
-import { LoginService } from '../servicios/login/login.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {EmpleadosConverter} from '../convertidores/empleadosConverter';
+import {EmpleadoDTO} from '../dto/empleadodto';
+import {EmpleadoService} from '../servicios/empleado/empleado.service';
+import {LoginService} from '../servicios/login/login.service';
 
 @Component({
   selector: 'app-empleado-editor',
@@ -11,12 +11,13 @@ import { LoginService } from '../servicios/login/login.service';
   styleUrls: ['./empleado-editor.component.css'],
 })
 export class EmpleadoEditorComponent {
-  model = new EmpleadoDTO(1, 'Nombre', 'Password');
+  model = new EmpleadoDTO(1, 'Name', 'Password');
   service!: EmpleadoService;
   router!: Router;
   route!: ActivatedRoute;
   converter!: EmpleadosConverter;
   loginService: LoginService;
+
   constructor(
     service: EmpleadoService,
     router: Router,
@@ -32,6 +33,7 @@ export class EmpleadoEditorComponent {
     this.model.codigo = Number(this.route.snapshot.paramMap.get('codigo'));
     this.getEmpleado(this.model.codigo);
   }
+
   getEmpleado(codigo: number): void {
     this.service
       .getEmpleado(codigo)

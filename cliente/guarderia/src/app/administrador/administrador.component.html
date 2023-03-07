@@ -8,22 +8,22 @@
   </mat-card-content>
   <mat-card-actions>
     <button
-      mat-icon-button
-      *ngIf="editable"
-      color="accent"
-      class="editarButton"
-      aria-label="Editar"
       (click)="this.editar.emit(this.administrador.id)"
+      *ngIf="editable"
+      aria-label="Edit"
+      class="editarButton"
+      color="accent"
+      mat-icon-button
     >
       <mat-icon>edit</mat-icon>
     </button>
     <button
-      mat-icon-button
-      *ngIf="borrable"
-      color="warn"
-      class="borrarButton"
-      aria-label="Borrar"
       (click)="this.borrar.emit(this.administrador)"
+      *ngIf="borrable"
+      aria-label="Delete"
+      class="borrarButton"
+      color="warn"
+      mat-icon-button
     >
       <mat-icon>delete</mat-icon>
     </button>

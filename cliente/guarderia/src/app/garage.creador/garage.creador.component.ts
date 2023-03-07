@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Router, RouterOutletContract } from '@angular/router';
-import { GarageDTO } from '../dto/garagedto';
-import { GarageService } from '../servicios/garage/garage.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {GarageDTO} from '../dto/garagedto';
+import {GarageService} from '../servicios/garage/garage.service';
 
 @Component({
   selector: 'app-garage-creador',

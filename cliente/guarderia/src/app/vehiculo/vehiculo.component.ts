@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { VehiculoDTO } from '../dto/vehiculodto';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {VehiculoDTO} from '../dto/vehiculodto';
 
 @Component({
   selector: 'app-vehiculo',

@@ -1,20 +1,20 @@
-<mat-card [ngClass]="'subtituloContainer'" *ngIf="this.loginService.user.role === 'administrador'">
+<mat-card *ngIf="this.loginService.user.role === 'administrador'" [ngClass]="'subtituloContainer'">
   <mat-card-content>
-    <h2>Elija una opción a editar</h2>
+    <h2>Choose what you want to edit</h2>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="editarCampos()">
-      Campos
+    <button (click)="editarCampos()" color="accent" mat-raised-button>
+      Fields
     </button>
-    <button mat-raised-button color="primary" (click)="editarZonas()">
-      Asignar o remover zonas
+    <button (click)="editarZonas()" color="primary" mat-raised-button>
+      Assign or remove zones
     </button>
     <button
-      mat-raised-button
-      color="primary"
       (click)="editarCantidadVehiculosAsignados()"
+      color="primary"
+      mat-raised-button
     >
-      Cantidad de vehiculos asignados
+      Amount of assigned vehicles
     </button>
   </mat-card-actions>
 </mat-card>

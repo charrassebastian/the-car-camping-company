@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { AdministradorDTO } from '../dto/administradordto';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AdministradorDTO} from '../dto/administradordto';
 
 @Component({
   selector: 'app-administrador',

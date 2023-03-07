@@ -1,17 +1,9 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { EmpleadosConverter } from '../convertidores/empleadosConverter';
-import { ZonasConverter } from '../convertidores/zonasConverter';
-import { EmpleadoDTO } from '../dto/empleadodto';
-import { ZonaDTO } from '../dto/zonadto';
-import { FormateadorPorSeparador } from '../formateadores/formateadorPorSeparador';
-import { ZonaService } from '../servicios/zona/zona.service';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges,} from '@angular/core';
+import {EmpleadosConverter} from '../convertidores/empleadosConverter';
+import {EmpleadoDTO} from '../dto/empleadodto';
+import {ZonaDTO} from '../dto/zonadto';
+import {FormateadorPorSeparador} from '../formateadores/formateadorPorSeparador';
+import {ZonaService} from '../servicios/zona/zona.service';
 
 @Component({
   selector: 'app-zona',
@@ -35,17 +27,21 @@ export class ZonaComponent implements OnChanges {
   editar = new EventEmitter<string>();
   numeroVehiculosContenidos?: number;
   empleados?: EmpleadoDTO[];
+
   constructor(
     private service: ZonaService,
     private converter: EmpleadosConverter,
     private formatter: FormateadorPorSeparador
-  ) {}
+  ) {
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['zona'].currentValue.letra !== undefined) {
       this.fetchEmpleados();
       this.fetchNumeroVehiculosAsignados();
     }
   }
+
   fetchEmpleados() {
     this.service
       .getEmpleadosAsignados(this.zona.letra)
@@ -55,6 +51,7 @@ export class ZonaComponent implements OnChanges {
         );
       });
   }
+
   fetchNumeroVehiculosAsignados() {
     this.service
       .getNumeroVehiculosContenidos(this.zona.letra)
@@ -62,14 +59,16 @@ export class ZonaComponent implements OnChanges {
         this.numeroVehiculosContenidos = numeroVehiculosContenidos;
       });
   }
+
   getCodigosEmpleados(): string {
     return this.empleados?.length
       ? this.formatter.formatearCodigosEmpleados(this.empleados, ', ')
-      : 'ninguno';
+      : 'none';
   }
+
   getNumerosGarages(): string {
     return this.zona.garages?.length
       ? this.formatter.formatearNumerosGarages(this.zona.garages, ', ')
-      : 'ninguno';
+      : 'none';
   }
 }

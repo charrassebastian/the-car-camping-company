@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { VehiculoDTO } from '../dto/vehiculodto';
-import { VehiculoService } from '../servicios/vehiculo/vehiculo.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {VehiculoDTO} from '../dto/vehiculodto';
+import {VehiculoService} from '../servicios/vehiculo/vehiculo.service';
 
 @Component({
   selector: 'app-vehiculo-creador',

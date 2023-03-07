@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { VehiculoService } from '../servicios/vehiculo/vehiculo.service';
-import { VehiculoDTO } from '../dto/vehiculodto';
-import { ActivatedRoute, Router } from '@angular/router';
-import { VehiculosConverter } from '../convertidores/vehiculosConverter';
-import { LoginService } from '../servicios/login/login.service';
+import {Component} from '@angular/core';
+import {VehiculoService} from '../servicios/vehiculo/vehiculo.service';
+import {VehiculoDTO} from '../dto/vehiculodto';
+import {ActivatedRoute, Router} from '@angular/router';
+import {VehiculosConverter} from '../convertidores/vehiculosConverter';
+import {LoginService} from '../servicios/login/login.service';
 
 @Component({
   selector: 'app-vehiculo-editor',
@@ -17,6 +17,7 @@ export class VehiculoEditorComponent {
   route!: ActivatedRoute;
   converter!: VehiculosConverter;
   loginService: LoginService;
+
   constructor(
     service: VehiculoService,
     router: Router,

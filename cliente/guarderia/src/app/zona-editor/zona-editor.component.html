@@ -1,51 +1,54 @@
 <div *ngIf="this.loginService.user.role === 'administrador'">
   <mat-card [ngClass]="'subtituloContainer titulo'">
     <mat-card-content>
-      <h2>Ingrese los nuevos datos para la zona</h2>
+      <h2>Enter the new information of the zone</h2>
     </mat-card-content>
   </mat-card>
-  <form (ngSubmit)="onSubmit()" #zonaForm="ngForm">
+  <form #zonaForm="ngForm" (ngSubmit)="onSubmit()">
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Tipo de vehículos que contiene</h2>
+        <h2>Type of vehicles it contains</h2>
         <mat-form-field appearance="outline">
-          <mat-label>TIpo de vehiculos</mat-label>
+          <mat-label>Type of vehicles</mat-label>
           <input
-            type="text"
+            [(ngModel)]="model.tipoVehiculo"
             matInput
             name="tipoVehiculo"
-            [(ngModel)]="model.tipoVehiculo"
-          /> </mat-form-field
-      ></mat-card-content>
+            type="text"
+          /></mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Profundidad de los garages</h2>
+        <h2>Depth of the garages</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Profundidad</mat-label>
+          <mat-label>Depth</mat-label>
           <input
-            type="number"
+            [(ngModel)]="model.profundidadGarage"
             matInput
             name="profundidadGarage"
-            [(ngModel)]="model.profundidadGarage"
-          /> </mat-form-field
-      ></mat-card-content>
+            type="number"
+          /></mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <mat-card class="formCard">
       <mat-card-content>
-        <h2>Ancho de los garages</h2>
+        <h2>Depth of the garages</h2>
         <mat-form-field appearance="outline">
-          <mat-label>Ancho</mat-label>
+          <mat-label>Depth</mat-label>
           <input
-            type="number"
+            [(ngModel)]="model.anchoGarage"
             matInput
             name="ancho"
-            [(ngModel)]="model.anchoGarage"
-          /> </mat-form-field
-      ></mat-card-content>
+            type="number"
+          /></mat-form-field
+        >
+      </mat-card-content>
     </mat-card>
     <div class="submitContainer">
-      <button type="submit" mat-fab color="accent">
+      <button color="accent" mat-fab type="submit">
         <mat-icon>send</mat-icon>
       </button>
     </div>

@@ -1,5 +1,5 @@
-import { GarageDTO } from './garagedto';
-import { VehiculoDTO } from './vehiculodto';
+import {GarageDTO} from './garagedto';
+import {VehiculoDTO} from './vehiculodto';
 
 export class SocioDTO {
   dni: number;

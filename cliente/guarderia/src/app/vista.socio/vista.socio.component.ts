@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SociosConverter } from '../convertidores/sociosConverter';
-import { SocioDTO } from '../dto/sociodto';
-import { LoginService } from '../servicios/login/login.service';
-import { SocioService } from '../servicios/socio/socio.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {SociosConverter} from '../convertidores/sociosConverter';
+import {SocioDTO} from '../dto/sociodto';
+import {LoginService} from '../servicios/login/login.service';
+import {SocioService} from '../servicios/socio/socio.service';
 
 @Component({
   selector: 'app-vista-socio',
@@ -13,6 +13,7 @@ import { SocioService } from '../servicios/socio/socio.service';
 export class VistaSocioComponent {
   socio!: SocioDTO;
   loginService: LoginService;
+
   constructor(
     private service: SocioService,
     private converter: SociosConverter,
@@ -22,6 +23,7 @@ export class VistaSocioComponent {
     this.loginService = loginService;
     this.getSocio();
   }
+
   getSocio(): void {
     this.service
       .getSocio(Number(this.route.snapshot.paramMap.get('dni')))

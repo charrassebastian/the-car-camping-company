@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SocioDTO } from '../dto/sociodto';
-import { FormateadorPorSeparador } from '../formateadores/formateadorPorSeparador';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {SocioDTO} from '../dto/sociodto';
+import {FormateadorPorSeparador} from '../formateadores/formateadorPorSeparador';
 
 @Component({
   selector: 'app-socio',
@@ -18,11 +18,15 @@ export class SocioComponent {
   borrar = new EventEmitter<SocioDTO>();
   @Output()
   editar = new EventEmitter<number>();
-  constructor(private formatter: FormateadorPorSeparador) {}
-  getNumerosGarages(): string {
-    return this.socio?.garages?.length ? this.formatter.formatearNumerosGarages(this.socio.garages, ", ") : "ninguno";
+
+  constructor(private formatter: FormateadorPorSeparador) {
   }
+
+  getNumerosGarages(): string {
+    return this.socio?.garages?.length ? this.formatter.formatearNumerosGarages(this.socio.garages, ", ") : "none";
+  }
+
   getMatriculasVehiculos(): string {
-    return this.socio?.vehiculos?.length ? this.formatter.formatearMatriculasVehiculos(this.socio.vehiculos, ", ") : "ninguna";
+    return this.socio?.vehiculos?.length ? this.formatter.formatearMatriculasVehiculos(this.socio.vehiculos, ", ") : "none";
   }
 }

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ZonaDTO } from '../dto/zonadto';
-import { ZonaService } from '../servicios/zona/zona.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {ZonaDTO} from '../dto/zonadto';
+import {ZonaService} from '../servicios/zona/zona.service';
 
 @Component({
   selector: 'app-zona-creador',

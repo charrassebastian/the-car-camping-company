@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { SocioDTO } from '../dto/sociodto';
-import { SocioService } from '../servicios/socio/socio.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {SocioDTO} from '../dto/sociodto';
+import {SocioService} from '../servicios/socio/socio.service';
 
 @Component({
   selector: 'app-socio-creador',
@@ -9,7 +9,7 @@ import { SocioService } from '../servicios/socio/socio.service';
   styleUrls: ['./socio.creador.component.css'],
 })
 export class SocioCreadorComponent {
-  model = new SocioDTO(1, 'Nombre', 'Password');
+  model = new SocioDTO(1, 'Name', 'Password');
   service!: SocioService;
   router!: Router;
 

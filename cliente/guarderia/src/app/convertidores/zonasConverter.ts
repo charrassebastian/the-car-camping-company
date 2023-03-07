@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
-import { ZonaDTO } from '../dto/zonadto';
-import { GaragesConverter } from './garagesConverter';
+import {Injectable} from '@angular/core';
+import {ZonaDTO} from '../dto/zonadto';
+import {GaragesConverter} from './garagesConverter';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ZonasConverter {
-  constructor(private garagesConverter: GaragesConverter){}
+  constructor(private garagesConverter: GaragesConverter) {
+  }
+
   convertirZona(zonaModel: any): ZonaDTO {
     return new ZonaDTO(
       zonaModel.letra,

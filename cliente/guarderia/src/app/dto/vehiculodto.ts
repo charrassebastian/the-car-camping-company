@@ -1,4 +1,4 @@
-import { GarageDTO } from './garagedto';
+import {GarageDTO} from './garagedto';
 
 export class VehiculoDTO {
   matricula: string;

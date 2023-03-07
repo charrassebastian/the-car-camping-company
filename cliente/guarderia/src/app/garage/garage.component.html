@@ -1,51 +1,51 @@
-<mat-card class="entidad" *ngIf="garage">
+<mat-card *ngIf="garage" class="entidad">
   <mat-card-content>
     <h3>N°{{ garage.numeroGarage }}</h3>
     <ul>
       <li>
-        Lectura del contador de luz:
-        {{ garage.lecturaContadorLuz ?? "No se ha ingresado" }}
+        Light meter reading:
+        {{ garage.lecturaContadorLuz ?? "Not indicated" }}
       </li>
       <li>
-        ¿Tiene mantenimiento contratado?:
-        {{ garage.clienteServiciosMantenimiento ? "sí" : "no" }}
+        Does it have contracted maintenment services?:
+        {{ garage.clienteServiciosMantenimiento ? "yes" : "no" }}
       </li>
       <li>
-        Fecha de compra del garage:
+        Date of purchase of the garage:
         {{
-          garage.fechaCompraGarage?.toLocaleDateString() ?? "No se ha ingresado"
+        garage.fechaCompraGarage?.toLocaleDateString() ?? "Not indicated"
         }}
       </li>
     </ul>
   </mat-card-content>
   <mat-card-actions>
     <button
-      mat-icon-button
-      *ngIf="asignable"
-      color="accent"
-      class="asignarButton"
-      aria-label="Asignar"
       (click)="this.asignar.emit(this.garage)"
+      *ngIf="asignable"
+      aria-label="Assign"
+      class="asignarButton"
+      color="accent"
+      mat-icon-button
     >
       <mat-icon>add</mat-icon>
     </button>
     <button
-      mat-icon-button
-      *ngIf="editable"
-      color="accent"
-      class="editarButton"
-      aria-label="Editar"
       (click)="this.editar.emit(this.garage.numeroGarage)"
+      *ngIf="editable"
+      aria-label="Edit"
+      class="editarButton"
+      color="accent"
+      mat-icon-button
     >
       <mat-icon>edit</mat-icon>
     </button>
     <button
-      mat-icon-button
-      *ngIf="borrable"
-      color="warn"
-      class="borrarButton"
-      aria-label="Borrar"
       (click)="this.borrar.emit(this.garage)"
+      *ngIf="borrable"
+      aria-label="Delete"
+      class="borrarButton"
+      color="warn"
+      mat-icon-button
     >
       <mat-icon>delete</mat-icon>
     </button>
