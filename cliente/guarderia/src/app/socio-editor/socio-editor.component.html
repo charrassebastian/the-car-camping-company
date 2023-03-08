@@ -66,18 +66,18 @@
         <h2>Date of entrance</h2>
         <mat-form-field appearance="outline">
           <mat-label>Date of entrance</mat-label>
-            <input
-              [(ngModel)]="model.ingreso"
-              [matDatepicker]="picker"
-              matInput
-              name="ingreso"
-            />
-            <mat-hint>DD/MM/YYYY</mat-hint>
-            <mat-datepicker-toggle
-              [for]="picker"
-              matIconSuffix
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+          <input
+            [(ngModel)]="model.ingreso"
+            [matDatepicker]="picker"
+            matInput
+            name="ingreso"
+          />
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            [for]="picker"
+            matIconSuffix
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </mat-card-content>
     </mat-card>

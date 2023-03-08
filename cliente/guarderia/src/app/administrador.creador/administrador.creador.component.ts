@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./administrador.creador.component.css'],
 })
 export class AdministradorCreadorComponent {
-  model = new AdministradorDTO(1, 'Name of the administrator', 'Password');
+  model = new AdministradorDTO(1, 'Name of the manager', 'Password');
   service!: AdministradorService;
   router!: Router;
 

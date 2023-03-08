@@ -8,7 +8,7 @@ import {LoginService} from './servicios/login/login.service';
 })
 export class AppComponent {
 
-  title = 'The Car Camping Company\'s Gestion System';
+  title = 'Management System';
   service: LoginService;
 
   constructor(service: LoginService) {

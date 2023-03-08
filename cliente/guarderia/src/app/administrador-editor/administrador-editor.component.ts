@@ -11,7 +11,7 @@ import {LoginService} from '../servicios/login/login.service';
   styleUrls: ['./administrador-editor.component.css'],
 })
 export class AdministradorEditorComponent {
-  model = new AdministradorDTO(1, 'Name of the administrator', 'Password');
+  model = new AdministradorDTO(1, 'Name of the manager', 'Password');
   service!: AdministradorService;
   router!: Router;
   route!: ActivatedRoute;

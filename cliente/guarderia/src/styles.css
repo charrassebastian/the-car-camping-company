@@ -18,7 +18,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
-  
+
 }
 
 body::-webkit-scrollbar {
@@ -116,6 +116,6 @@ input[type="number"] {
   max-width: 100%;
 }
 
-.itemsContainer li{
+.itemsContainer li {
   margin: 1rem 0 !important;
 }

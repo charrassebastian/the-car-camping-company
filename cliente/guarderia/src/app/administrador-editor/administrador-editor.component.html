@@ -1,7 +1,7 @@
 <div *ngIf="this.loginService.user.role === 'administrador'">
   <mat-card [ngClass]="'subtituloContainer titulo'">
     <mat-card-content>
-      <h2>Enter the new information for the administrator</h2>
+      <h2>Enter the new information for the manager</h2>
     </mat-card-content>
   </mat-card>
   <form #administradorForm="ngForm" (ngSubmit)="onSubmit()">
