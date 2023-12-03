@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cccms-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cccms-server
+  template:
+    metadata:
+      labels:
+        app: cccms-server
+    spec:
+      containers:
+      - name: cccms-server
+        image: sebastiancharras/cccms-server
+        ports:
+        - containerPort: 80
