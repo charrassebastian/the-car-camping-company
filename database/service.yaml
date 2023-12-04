@@ -1,10 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: cccms-database
+  name: cccms-db
+  labels:
+    app: cccms-db
 spec:
   type: ClusterIP
-  ports:
-  - port: 3306
   selector:
-    app: cccms-database
+    app: cccms-db
+  ports:
+    - port: 3306
+      protocol: TCP

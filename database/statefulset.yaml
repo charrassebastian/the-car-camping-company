@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cccms-db
+spec:
+  selector:
+    matchLabels:
+      app: cccms-db
+  serviceName: cccms-db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cccms-db
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: cccms-db
+        image: mysql:latest
+        ports:
+        - containerPort: 3306
+          name: cccms-db
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: "guarderia"
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: cccms-volume
+  volumeClaimTemplates:
+  - metadata:
+      name: cccms-volume
+    spec:
+      storageClassName: sc-local
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
