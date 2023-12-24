@@ -189,7 +189,8 @@
   <div class="listaContainer">
     <mat-card [ngClass]="'subtituloContainer'">
       <mat-card-content>
-        <p>The author of this project should not be deemed responsible for the use made by its users</p>
+        <button mat-button (click)="onToggleShouldShowLicenses()">{{ shouldShowLicenses ? "Hide licenses" : "Show licenses" }}</button>
+        <app-licenses *ngIf="shouldShowLicenses"></app-licenses>
       </mat-card-content>
     </mat-card>
   </div>

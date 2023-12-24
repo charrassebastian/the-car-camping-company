@@ -51,6 +51,8 @@ export class VistaAdministradorComponent {
   errorBorrarEntidadAsociacionVigenteService!: ErrorBorrarEntidadAsociacionVigenteService;
   loginService: LoginService;
 
+  shouldShowLicenses: Boolean = false;
+
   constructor(
     administradorService: AdministradorService,
     administradoresConverter: AdministradoresConverter,
@@ -350,6 +352,10 @@ export class VistaAdministradorComponent {
 
   editarZona(letra: string): void {
     this.router.navigate(['editar', 'zona', letra]);
+  }
+
+  onToggleShouldShowLicenses(): void {
+    this.shouldShowLicenses = !this.shouldShowLicenses;
   }
 
 }
