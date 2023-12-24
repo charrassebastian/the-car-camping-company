@@ -74,6 +74,7 @@ import {MomentDateAdapter,} from '@angular/material-moment-adapter';
 import {
   ErrorCrearEntidadExistenteComponent
 } from './error-crear-entidad-existente/error-crear-entidad-existente.component';
+import { LicensesComponent } from './licenses/licenses.component';
 
 export const FORMATOS_FECHAS = {
   parse: {
@@ -125,6 +126,7 @@ export const FORMATOS_FECHAS = {
     ErrorBorrarEntidadAsociacionVigenteComponent,
     EditorCantidadVehiculosEncargadosEmpleadoComponent,
     ErrorCrearEntidadExistenteComponent,
+    LicensesComponent,
   ],
   imports: [
     BrowserModule,
